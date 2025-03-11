@@ -138,7 +138,7 @@ size_flags_horizontal = 4
 theme = ExtResource("5_do1uq")
 text = "Current Key:"
 
-[node name="KeyCount2" type="Label" parent="MarginContainer/CenterContainer/VBoxContainer/HBoxContainer2"]
+[node name="KeyCount2" type="Label" parent="MarginContainer/CenterContainer/VBoxContainer/HBoxContainer2" node_paths=PackedStringArray("timer")]
 custom_minimum_size = Vector2(130, 0)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -146,6 +146,9 @@ theme = ExtResource("5_do1uq")
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("6_xwlh0")
+timer = NodePath("../Timer")
+
+[node name="Timer" type="Timer" parent="MarginContainer/CenterContainer/VBoxContainer/HBoxContainer2"]
 
 [node name="Buttons" type="CenterContainer" parent="."]
 anchors_preset = 1
