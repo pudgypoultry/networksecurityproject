@@ -219,10 +219,18 @@ layout_mode = 2
 texture = ExtResource("7_860q0")
 expand_mode = 3
 
-[node name="Goal2" type="HBoxContainer" parent="Goals"]
+[node name="Goal2" type="HBoxContainer" parent="Goals" node_paths=PackedStringArray("keyTracker", "plainTextLine", "currentTexture")]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 alignment = 2
+script = ExtResource("8_ij0nr")
+keyTracker = NodePath("../../MarginContainer/CenterContainer/VBoxContainer/HBoxContainer2/KeyCount2")
+plainTextLine = NodePath("../../MarginContainer/CenterContainer/VBoxContainer/Plaintext")
+neededPlainText = "URYYB JBEYQ"
+neededCount = 13
+currentTexture = NodePath("TextureRect")
+imageNo = ExtResource("7_860q0")
+imageYes = ExtResource("8_0qwf2")
 
 [node name="Dash" type="Label" parent="Goals/Goal2"]
 custom_minimum_size = Vector2(20, 50)
