@@ -1,0 +1,70 @@
+[gd_scene load_steps=2 format=3 uid="uid://betkm0q4kb2hq"]
+
+[ext_resource type="Script" path="res://LockScenes/UIScenes/SwipingPresentation.gd" id="1_806we"]
+
+[node name="SwipingPresentation" type="ScrollContainer" node_paths=PackedStringArray("slides")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scroll_vertical = 1160
+vertical_scroll_mode = 3
+script = ExtResource("1_806we")
+slides = [NodePath("VBoxContainer/MarginContainer"), NodePath("VBoxContainer/MarginContainer2"), NodePath("VBoxContainer/MarginContainer3"), NodePath("VBoxContainer/MarginContainer4")]
+customMax = 2412
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(1000, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+
+[node name="First" type="Label" parent="VBoxContainer/MarginContainer"]
+custom_minimum_size = Vector2(0, 600)
+layout_mode = 2
+text = "The first, and most important question about cryptography is simple: what is it? We often hear advertisers throw around phrases like “end-to-end encrypted”, or “data encryption”, but what does that mean for you? The best way to think about encryption is to treat it like a secret language. Both the sender and receiver of a message will come up with a secret language that only they can understand. Any time you send anything on the internet, you write it in whatever secret language that you speak with the receiver. This way, you can send personal information, like name, password, and bank account number, and be sure that no hackers can get that information."
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(1000, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+
+[node name="First" type="Label" parent="VBoxContainer/MarginContainer2"]
+custom_minimum_size = Vector2(0, 600)
+layout_mode = 2
+text = "So cryptography is like a secret language, but how does it work? How do people use it on the internet? But most importantly, how can you use it in your own life? In this course, we will cover all of these questions and more to make you a cryptography expert."
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="MarginContainer3" type="MarginContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(1000, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="First" type="Label" parent="VBoxContainer/MarginContainer3"]
+custom_minimum_size = Vector2(0, 600)
+layout_mode = 2
+text = "Alright, so we know the basics of cryptography, but how does it work? First, there’s some terminology we should get a handle on before moving on. When we take a message, and write it in our secret language, we say that we “encrypt” the message. When we translate our message back to its original language, we “decrypt” it. We can also refer to the different ways our message looks. Before we “encrypt” our message, we call it “plaintext”. After we encrypt it, we call it “ciphertext”. After we decrypt our message, we once again call it plaintext. These 4 words, encrypt, decrypt, plaintext, and ciphertext are all necessary to discuss how cryptography works."
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="MarginContainer4" type="MarginContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(1000, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="First" type="Label" parent="VBoxContainer/MarginContainer4"]
+custom_minimum_size = Vector2(0, 600)
+layout_mode = 2
+text = "When we encrypt a message, we have to decide on two things. The first thing you have to decide on is the encryption method you will use. There’s lots of different methods to come up with our secret language. We usually refer to the different encryption methods as “encryption algorithms”, because they are all based on math. We will discuss a couple of them in later chapters. You then need to decide on a “key”. You can’t come up with a new encryption algorithm for every group of people who need to send secure messages. That’s impossible. Instead, we use encryption algorithms that involve keys. A key is a string of numbers and/or letters that you use to decide on your specific language. So when you write down your encrypted message, the “ciphertext” depends on both the encryption method you use, and the key you use."
+vertical_alignment = 1
+autowrap_mode = 3

@@ -1,0 +1,9 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://dfym1ny6kb6pj"]
+
+[ext_resource type="FontFile" uid="uid://dta5ub6hkqfo8" path="res://Fonts/mmrock9/MMRock9.ttf" id="1_mw0r8"]
+
+[resource]
+default_font = ExtResource("1_mw0r8")
+default_font_size = 18
+Button/font_sizes/font_size = 18
+Button/fonts/font = ExtResource("1_mw0r8")

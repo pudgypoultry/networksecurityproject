@@ -1,0 +1,96 @@
+[gd_scene load_steps=6 format=3 uid="uid://ddcqdwcktcppr"]
+
+[ext_resource type="Script" path="res://LockScenes/FullLock.gd" id="1_jr8lt"]
+[ext_resource type="PackedScene" uid="uid://c71ucj6e05lfr" path="res://LockScenes/letter_wheel.tscn" id="2_eo2lf"]
+[ext_resource type="Script" path="res://LockScenes/UIScenes/VigenereUI.gd" id="3_v7bad"]
+[ext_resource type="FontFile" uid="uid://dta5ub6hkqfo8" path="res://Fonts/mmrock9/MMRock9.ttf" id="4_8rg1a"]
+
+[sub_resource type="Environment" id="Environment_6205a"]
+ambient_light_source = 2
+ambient_light_color = Color(0.871094, 0.871094, 0.871094, 1)
+
+[node name="CaesarCipherScene" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3.74512, -0.0476167, 0)
+
+[node name="LockSeries" type="Node3D" parent="." node_paths=PackedStringArray("lockArray")]
+script = ExtResource("1_jr8lt")
+lockArray = [NodePath("LetterWheel0"), NodePath("LetterWheel1"), NodePath("LetterWheel2"), NodePath("LetterWheel3"), NodePath("LetterWheel4"), NodePath("LetterWheel5"), NodePath("LetterWheel6"), NodePath("LetterWheel7"), NodePath("LetterWheel8"), NodePath("LetterWheel9"), NodePath("LetterWheel10")]
+
+[node name="LetterWheel0" parent="LockSeries" instance=ExtResource("2_eo2lf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.1999)
+
+[node name="LetterWheel1" parent="LockSeries" instance=ExtResource("2_eo2lf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.761)
+
+[node name="LetterWheel2" parent="LockSeries" instance=ExtResource("2_eo2lf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.3219)
+
+[node name="LetterWheel3" parent="LockSeries" instance=ExtResource("2_eo2lf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.8829)
+
+[node name="LetterWheel4" parent="LockSeries" instance=ExtResource("2_eo2lf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.4439)
+
+[node name="LetterWheel5" parent="LockSeries" instance=ExtResource("2_eo2lf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.00490034)
+
+[node name="LetterWheel6" parent="LockSeries" instance=ExtResource("2_eo2lf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.4341)
+
+[node name="LetterWheel7" parent="LockSeries" instance=ExtResource("2_eo2lf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.872995)
+
+[node name="LetterWheel8" parent="LockSeries" instance=ExtResource("2_eo2lf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.3121)
+
+[node name="LetterWheel9" parent="LockSeries" instance=ExtResource("2_eo2lf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.7511)
+
+[node name="LetterWheel10" parent="LockSeries" instance=ExtResource("2_eo2lf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.1901)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_6205a")
+
+[node name="MarginContainer" type="MarginContainer" parent="." node_paths=PackedStringArray("locks", "keyText", "plainText")]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -166.0
+offset_bottom = -62.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 3
+script = ExtResource("3_v7bad")
+locks = NodePath("../LockSeries")
+keyText = NodePath("CenterContainer/VBoxContainer/KeyText")
+plainText = NodePath("CenterContainer/VBoxContainer/Plaintext")
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/CenterContainer"]
+layout_mode = 2
+
+[node name="KeyText" type="LineEdit" parent="MarginContainer/CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(350, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("4_8rg1a")
+placeholder_text = "Type a Key"
+alignment = 1
+
+[node name="Plaintext" type="LineEdit" parent="MarginContainer/CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(350, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("4_8rg1a")
+text = "Hello World"
+placeholder_text = "Enter Float Here"
+alignment = 1
+
+[connection signal="text_submitted" from="MarginContainer/CenterContainer/VBoxContainer/KeyText" to="LockSeries" method="_on_keytext_text_submitted"]
+[connection signal="text_submitted" from="MarginContainer/CenterContainer/VBoxContainer/Plaintext" to="LockSeries" method="_on_plaintext_text_changed"]

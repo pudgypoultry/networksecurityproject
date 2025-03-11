@@ -1,0 +1,125 @@
+[gd_scene load_steps=6 format=3 uid="uid://bwurfx0etyo2p"]
+
+[ext_resource type="Script" path="res://LockScenes/UIScenes/SwipingPresentation.gd" id="1_gs3w0"]
+[ext_resource type="Texture2D" uid="uid://5iocxgl1mc81" path="res://Images/EncryptionExample.png" id="2_yjho1"]
+[ext_resource type="Theme" uid="uid://dfym1ny6kb6pj" path="res://Button.tres" id="3_oy6tb"]
+[ext_resource type="Script" path="res://LockScenes/UIScenes/SceneLoadButton.gd" id="4_j1q1o"]
+[ext_resource type="PackedScene" uid="uid://c5u1gn02vqehi" path="res://LockScenes/CaesarCipherScene.tscn" id="5_wj5h0"]
+
+[node name="SwipingPresentation" type="ScrollContainer" node_paths=PackedStringArray("slides")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scroll_vertical = 1776
+vertical_scroll_mode = 3
+script = ExtResource("1_gs3w0")
+slides = [NodePath("VBoxContainer/MarginContainer"), NodePath("VBoxContainer/MarginContainer2"), NodePath("VBoxContainer/MarginContainer3"), NodePath("VBoxContainer/MarginContainer4")]
+customMax = 2412
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(1000, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+
+[node name="First" type="Label" parent="VBoxContainer/MarginContainer"]
+custom_minimum_size = Vector2(0, 600)
+layout_mode = 2
+text = "What is \"Cryptography\"? What does “End-to-End Encrypted”, “Asymmetric Key Encryption\", or \"Cipher\" mean?  Why does this matter to you?  Much of this language may feel complex, but by the end of these lessons, you'll have the tools you need to make sense of it all.
+
+The best way to think about encryption is to treat it like a secret language that acts as a lock and key. The sender and receiver will agree on a secret communication method that the sender will use to make a message look like gibberish (the lock), then the receiver will work that method backwards in order to understand that message (the key)."
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(1000, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer2"]
+layout_mode = 2
+
+[node name="First" type="Label" parent="VBoxContainer/MarginContainer2/VBoxContainer"]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+text = "Any time you send anything through the internet, your computer acts as that sender, and the computer you sent it to acts as that receiver.  There are different methods that computers today use to do this quickly, efficiently, and safely, but to understand those we should start with a simple example:"
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="First2" type="Label" parent="VBoxContainer/MarginContainer2/VBoxContainer"]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+text = "Original Text: \"BE SURE TO DRINK YOUR OVALTINE\"
+
+Secret Method: Increase every letter by one character (EX:  A -> B,  B -> C,  C -> D, ... ,  Z -> A)
+
+New Text: \"CF TVSF UP ESJOL ZPVS PWBMUJOF\"
+
+We can get the original text back by undoing this process (B -> A,  C -> B,  D -> C, ... , A -> Z)
+
+After doing so, we get back: \"BE SURE TO DRINK YOUR OVALTINE\""
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="MarginContainer3" type="MarginContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(1000, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer3"]
+custom_minimum_size = Vector2(0, 600)
+layout_mode = 2
+
+[node name="First" type="Label" parent="VBoxContainer/MarginContainer3/VBoxContainer"]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+text = "The method that creates the gibberish is called the \"Encryption Function\", and the method that undoes that gibberish and gives us back the original message is called the \"Decryption Function\". We call the original message the \"Plaintext\", and we call the gibberish that comes out of the encryption function the \"Ciphertext\". The following figure shows the relationship between all of these vocabulary words:"
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/MarginContainer3/VBoxContainer"]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("2_yjho1")
+stretch_mode = 2
+
+[node name="MarginContainer4" type="MarginContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(1000, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer4"]
+layout_mode = 2
+
+[node name="First" type="Label" parent="VBoxContainer/MarginContainer4/VBoxContainer"]
+custom_minimum_size = Vector2(0, 400)
+layout_mode = 2
+text = "As far back as the year 100 B.C., Julius Caesar used a simple encryption function to secretly communicate with his generals on the battlefield. If a messenger was captured, the message would appear as gibberish to any enemy combatants. The method used was quite a bit like the first example from before, but instead of only moving letters by one space, we allow a movement of any amount.  We choose a key of any number, and then we \"rotate\" all of the letters by this amount. For example, if we choose 2, then A becomes C, B becomes D, C becomes E, and so on. When we reach the end of the alphabet, we simply loop back around to the start. Effectively, we've created a classic combination lock out of written language! Click the button below to proceed to an interactive activity that will help provide some insight:"
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/MarginContainer4/VBoxContainer"]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Button" type="Button" parent="VBoxContainer/MarginContainer4/VBoxContainer/MarginContainer"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme = ExtResource("3_oy6tb")
+text = "PROCEED"
+script = ExtResource("4_j1q1o")
+nextScene = ExtResource("5_wj5h0")
+
+[connection signal="pressed" from="VBoxContainer/MarginContainer4/VBoxContainer/MarginContainer/Button" to="VBoxContainer/MarginContainer4/VBoxContainer/MarginContainer/Button" method="_on_pressed"]

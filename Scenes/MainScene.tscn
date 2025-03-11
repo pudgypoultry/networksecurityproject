@@ -1,0 +1,92 @@
+[gd_scene load_steps=4 format=3 uid="uid://drmr010nsxnyn"]
+
+[ext_resource type="Texture2D" uid="uid://cfgslbveu8ths" path="res://Images/Logo.png" id="1_8hk08"]
+[ext_resource type="Script" path="res://Scripts/ExitButton.gd" id="3_rqh4n"]
+[ext_resource type="PackedScene" uid="uid://dfctydsctrrvs" path="res://Scenes/menu_button.tscn" id="4_trhv6"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 28
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 266.295)
+layout_mode = 2
+texture = ExtResource("1_8hk08")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(0, 65.96)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+alignment = 1
+
+[node name="Calculator" parent="VBoxContainer/HBoxContainer/VBoxContainer" instance=ExtResource("4_trhv6")]
+layout_mode = 2
+size_flags_horizontal = 0
+sceneToLoad = "res://Scenes/conversion_scene.tscn"
+
+[node name="MenuButtonName" parent="VBoxContainer/HBoxContainer/VBoxContainer/Calculator" index="1"]
+text = "Calculator"
+
+[node name="BitToFloatQuiz" parent="VBoxContainer/HBoxContainer/VBoxContainer" instance=ExtResource("4_trhv6")]
+layout_mode = 2
+sceneToLoad = "res://Scenes/bit_to_float_quiz.tscn"
+
+[node name="MenuButtonName" parent="VBoxContainer/HBoxContainer/VBoxContainer/BitToFloatQuiz" index="1"]
+text = "Bit-To-Float Practice"
+
+[node name="FloatToBitQuiz" parent="VBoxContainer/HBoxContainer/VBoxContainer" instance=ExtResource("4_trhv6")]
+layout_mode = 2
+sceneToLoad = "res://Scenes/float_to_bit_quiz.tscn"
+
+[node name="MenuButtonName" parent="VBoxContainer/HBoxContainer/VBoxContainer/FloatToBitQuiz" index="1"]
+text = "Float-To-Bit Practice"
+
+[node name="Explanation" parent="VBoxContainer/HBoxContainer/VBoxContainer" instance=ExtResource("4_trhv6")]
+layout_mode = 2
+size_flags_horizontal = 0
+sceneToLoad = "res://Scenes/explanation_menu.tscn"
+
+[node name="MenuButtonName" parent="VBoxContainer/HBoxContainer/VBoxContainer/Explanation" index="1"]
+text = "Explanation"
+
+[node name="Credits" parent="VBoxContainer/HBoxContainer/VBoxContainer" instance=ExtResource("4_trhv6")]
+layout_mode = 2
+size_flags_horizontal = 0
+sceneToLoad = "res://Scenes/credits.tscn"
+
+[node name="MenuButtonName" parent="VBoxContainer/HBoxContainer/VBoxContainer/Credits" index="1"]
+text = "Credits"
+
+[node name="Exit" parent="VBoxContainer/HBoxContainer/VBoxContainer" instance=ExtResource("4_trhv6")]
+layout_mode = 2
+size_flags_horizontal = 0
+script = ExtResource("3_rqh4n")
+
+[node name="MenuButtonName" parent="VBoxContainer/HBoxContainer/VBoxContainer/Exit" index="1"]
+text = "Exit
+"
+
+[editable path="VBoxContainer/HBoxContainer/VBoxContainer/Calculator"]
+[editable path="VBoxContainer/HBoxContainer/VBoxContainer/BitToFloatQuiz"]
+[editable path="VBoxContainer/HBoxContainer/VBoxContainer/FloatToBitQuiz"]
+[editable path="VBoxContainer/HBoxContainer/VBoxContainer/Explanation"]
+[editable path="VBoxContainer/HBoxContainer/VBoxContainer/Credits"]
+[editable path="VBoxContainer/HBoxContainer/VBoxContainer/Exit"]

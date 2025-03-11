@@ -1,0 +1,116 @@
+[gd_scene load_steps=3 format=3 uid="uid://d1krg400ns3sn"]
+
+[ext_resource type="PackedScene" uid="uid://kqst6ntameot" path="res://Scenes/binary_button.tscn" id="1_h74uk"]
+[ext_resource type="Script" path="res://Scripts/BinaryImageHandler.gd" id="1_r751a"]
+
+[node name="FloatButtons" type="HBoxContainer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -559.0
+offset_top = -20.0
+offset_right = 559.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 2
+alignment = 1
+script = ExtResource("1_r751a")
+
+[node name="BinaryButton" parent="." instance=ExtResource("1_h74uk")]
+layout_mode = 2
+
+[node name="BinaryButton1" parent="." instance=ExtResource("1_h74uk")]
+layout_mode = 2
+
+[node name="BinaryButton2" parent="." instance=ExtResource("1_h74uk")]
+layout_mode = 2
+
+[node name="BinaryButton3" parent="." instance=ExtResource("1_h74uk")]
+layout_mode = 2
+
+[node name="BinaryButton4" parent="." instance=ExtResource("1_h74uk")]
+layout_mode = 2
+
+[node name="BinaryButton5" parent="." instance=ExtResource("1_h74uk")]
+layout_mode = 2
+
+[node name="BinaryButton6" parent="." instance=ExtResource("1_h74uk")]
+layout_mode = 2
+
+[node name="BinaryButton7" parent="." instance=ExtResource("1_h74uk")]
+layout_mode = 2
+
+[node name="BinaryButton8" parent="." instance=ExtResource("1_h74uk")]
+layout_mode = 2
+
+[node name="BinaryButton9" parent="." instance=ExtResource("1_h74uk")]
+layout_mode = 2
+
+[node name="BinaryButton10" parent="." instance=ExtResource("1_h74uk")]
+layout_mode = 2
+
+[node name="BinaryButton11" parent="." instance=ExtResource("1_h74uk")]
+layout_mode = 2
+
+[node name="BinaryButton12" parent="." instance=ExtResource("1_h74uk")]
+layout_mode = 2
+
+[node name="BinaryButton13" parent="." instance=ExtResource("1_h74uk")]
+layout_mode = 2
+
+[node name="BinaryButton14" parent="." instance=ExtResource("1_h74uk")]
+layout_mode = 2
+
+[node name="BinaryButton15" parent="." instance=ExtResource("1_h74uk")]
+layout_mode = 2
+
+[node name="BinaryButton16" parent="." instance=ExtResource("1_h74uk")]
+layout_mode = 2
+
+[node name="BinaryButton17" parent="." instance=ExtResource("1_h74uk")]
+layout_mode = 2
+
+[node name="BinaryButton18" parent="." instance=ExtResource("1_h74uk")]
+layout_mode = 2
+
+[node name="BinaryButton19" parent="." instance=ExtResource("1_h74uk")]
+layout_mode = 2
+
+[node name="BinaryButton20" parent="." instance=ExtResource("1_h74uk")]
+layout_mode = 2
+
+[node name="BinaryButton21" parent="." instance=ExtResource("1_h74uk")]
+layout_mode = 2
+
+[node name="BinaryButton22" parent="." instance=ExtResource("1_h74uk")]
+layout_mode = 2
+
+[node name="BinaryButton23" parent="." instance=ExtResource("1_h74uk")]
+layout_mode = 2
+
+[node name="BinaryButton24" parent="." instance=ExtResource("1_h74uk")]
+layout_mode = 2
+
+[node name="BinaryButton25" parent="." instance=ExtResource("1_h74uk")]
+layout_mode = 2
+
+[node name="BinaryButton26" parent="." instance=ExtResource("1_h74uk")]
+layout_mode = 2
+
+[node name="BinaryButton27" parent="." instance=ExtResource("1_h74uk")]
+layout_mode = 2
+
+[node name="BinaryButton28" parent="." instance=ExtResource("1_h74uk")]
+layout_mode = 2
+
+[node name="BinaryButton29" parent="." instance=ExtResource("1_h74uk")]
+layout_mode = 2
+
+[node name="BinaryButton30" parent="." instance=ExtResource("1_h74uk")]
+layout_mode = 2
+
+[node name="BinaryButton31" parent="." instance=ExtResource("1_h74uk")]
+layout_mode = 2

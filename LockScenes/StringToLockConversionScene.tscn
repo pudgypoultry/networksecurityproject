@@ -1,0 +1,36 @@
+[gd_scene load_steps=3 format=3 uid="uid://cuxwthj5mw6ky"]
+
+[ext_resource type="FontFile" uid="uid://dta5ub6hkqfo8" path="res://Fonts/mmrock9/MMRock9.ttf" id="1_8uoqt"]
+[ext_resource type="Script" path="res://Scripts/FloatToArray.gd" id="2_cxwl6"]
+
+[node name="ConversionScene" type="VBoxContainer"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -559.0
+offset_top = -234.0
+offset_right = 559.0
+offset_bottom = -134.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 4
+alignment = 1
+
+[node name="EnterFloatHere" type="TextEdit" parent="."]
+custom_minimum_size = Vector2(350, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("1_8uoqt")
+placeholder_text = "Enter Float Here"
+
+[node name="FloatToArray" type="Button" parent="." node_paths=PackedStringArray("floatText")]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("1_8uoqt")
+text = "Convert Float to Bitstring"
+script = ExtResource("2_cxwl6")
+floatText = NodePath("../EnterFloatHere")
+
+[connection signal="pressed" from="FloatToArray" to="FloatToArray" method="_on_pressed"]

@@ -1,0 +1,191 @@
+[gd_scene load_steps=3 format=3 uid="uid://c71ucj6e05lfr"]
+
+[ext_resource type="Script" path="res://LockScenes/LetterWheel.gd" id="1_trqes"]
+[ext_resource type="PackedScene" uid="uid://c23f3tpg8qar7" path="res://LockScenes/ClickerWheel.glb" id="2_wv6ci"]
+
+[node name="LetterWheel" type="Node3D"]
+script = ExtResource("1_trqes")
+
+[node name="ClickerWheel" parent="." instance=ExtResource("2_wv6ci")]
+transform = Transform3D(0.997916, 0.0645323, 0, -0.0645323, 0.997916, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="A" type="Node3D" parent="."]
+
+[node name="ALabel" type="Label3D" parent="A"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.58104, 0, 0)
+text = "A"
+
+[node name="B" type="Node3D" parent="."]
+transform = Transform3D(0.973179, -0.23005, 0, 0.23005, 0.973179, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="BLabel" type="Label3D" parent="B"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.58104, 0, 0)
+text = "B"
+
+[node name="C" type="Node3D" parent="."]
+transform = Transform3D(0.894154, -0.447759, 0, 0.447759, 0.894154, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="CLabel" type="Label3D" parent="C"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.58104, 0, 0)
+text = "C"
+
+[node name="D" type="Node3D" parent="."]
+transform = Transform3D(0.765955, -0.642895, 0, 0.642895, 0.765955, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="DLabel" type="Label3D" parent="D"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.58104, 0, 0)
+text = "D"
+
+[node name="E" type="Node3D" parent="."]
+transform = Transform3D(0.597513, -0.801859, 0, 0.801859, 0.597513, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="ELabel" type="Label3D" parent="E"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.58104, 0, 0)
+text = "E"
+
+[node name="F" type="Node3D" parent="."]
+transform = Transform3D(0.39702, -0.91781, 0, 0.91781, 0.39702, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="FLabel" type="Label3D" parent="F"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.58104, 0, 0)
+text = "F"
+
+[node name="G" type="Node3D" parent="."]
+transform = Transform3D(0.177274, -0.984162, 0, 0.984162, 0.177274, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="GLabel" type="Label3D" parent="G"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.58104, 0, 0)
+text = "G"
+
+[node name="H" type="Node3D" parent="."]
+transform = Transform3D(-0.0538871, -0.998547, 0, 0.998547, -0.0538871, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="HLabel" type="Label3D" parent="H"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.58104, 0, 0)
+text = "H"
+
+[node name="I" type="Node3D" parent="."]
+transform = Transform3D(-0.282157, -0.959368, 0, 0.959368, -0.282157, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="ILabel" type="Label3D" parent="I"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.58104, 0, 0)
+text = "I"
+
+[node name="J" type="Node3D" parent="."]
+transform = Transform3D(-0.496929, -0.867791, 0, 0.867791, -0.496929, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="JLabel" type="Label3D" parent="J"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.58104, 0, 0)
+text = "J"
+
+[node name="K" type="Node3D" parent="."]
+transform = Transform3D(-0.683236, -0.730198, 0, 0.730198, -0.683236, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="KLabel" type="Label3D" parent="K"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.58104, 0, 0)
+text = "K"
+
+[node name="L" type="Node3D" parent="."]
+transform = Transform3D(-0.832892, -0.553435, 0, 0.553435, -0.832892, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="LLabel" type="Label3D" parent="L"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.58104, 0, 0)
+text = "L"
+
+[node name="M" type="Node3D" parent="."]
+transform = Transform3D(-0.937245, -0.34867, 0, 0.34867, -0.937245, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="MLabel" type="Label3D" parent="M"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.58104, 0, 0)
+text = "M"
+
+[node name="N" type="Node3D" parent="."]
+transform = Transform3D(-0.992319, -0.123705, 0, 0.123705, -0.992319, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="NLabel" type="Label3D" parent="N"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.58104, 0, 0)
+text = "N"
+
+[node name="O" type="Node3D" parent="."]
+transform = Transform3D(-0.994162, 0.107895, 0, -0.107895, -0.994162, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="OLabel" type="Label3D" parent="O"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.58104, 0, 0)
+text = "O"
+
+[node name="P" type="Node3D" parent="."]
+transform = Transform3D(-0.942046, 0.335485, 0, -0.335485, -0.942046, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="PLabel" type="Label3D" parent="P"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.58104, 0, 0)
+text = "P"
+
+[node name="Q" type="Node3D" parent="."]
+transform = Transform3D(-0.839601, 0.543204, 0, -0.543204, -0.839601, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="QLabel" type="Label3D" parent="Q"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.58104, 0, 0)
+text = "Q"
+
+[node name="R" type="Node3D" parent="."]
+transform = Transform3D(-0.692118, 0.721784, 0, -0.721784, -0.692118, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="RLabel" type="Label3D" parent="R"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.58104, 0, 0)
+text = "R"
+
+[node name="S" type="Node3D" parent="."]
+transform = Transform3D(-0.509297, 0.860591, 0, -0.860591, -0.509297, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="SLabel" type="Label3D" parent="S"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.58104, 0, 0)
+text = "S"
+
+[node name="T" type="Node3D" parent="."]
+transform = Transform3D(-0.297658, 0.954673, 0, -0.954673, -0.297658, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="TLabel" type="Label3D" parent="T"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.58104, 0, 0)
+text = "T"
+
+[node name="U" type="Node3D" parent="."]
+transform = Transform3D(-0.0700524, 0.997543, 0, -0.997543, -0.0700524, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="ULabel" type="Label3D" parent="U"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.58104, 0, 0)
+text = "U"
+
+[node name="V" type="Node3D" parent="."]
+transform = Transform3D(0.163171, 0.986598, 0, -0.986598, 0.163171, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="VLabel" type="Label3D" parent="V"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.58104, 0, 0)
+text = "V"
+
+[node name="W" type="Node3D" parent="."]
+transform = Transform3D(0.385761, 0.922599, 0, -0.922599, 0.385761, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="WLabel" type="Label3D" parent="W"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.58104, 0, 0)
+text = "W"
+
+[node name="X" type="Node3D" parent="."]
+transform = Transform3D(0.587658, 0.809109, 0, -0.809109, 0.587658, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="XLabel" type="Label3D" parent="X"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.58104, 0, 0)
+text = "X"
+
+[node name="Y" type="Node3D" parent="."]
+transform = Transform3D(0.761855, 0.647748, 0, -0.647748, 0.761855, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="YLabel" type="Label3D" parent="Y"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.58104, 0, 0)
+text = "Y"
+
+[node name="Z" type="Node3D" parent="."]
+transform = Transform3D(0.890435, 0.45511, 0, -0.45511, 0.890435, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="ZLabel" type="Label3D" parent="Z"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.58104, 0, 0)
+text = "Z"

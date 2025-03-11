@@ -1,0 +1,262 @@
+[gd_scene load_steps=15 format=3 uid="uid://c5u1gn02vqehi"]
+
+[ext_resource type="Script" path="res://LockScenes/FullLock.gd" id="1_rmynw"]
+[ext_resource type="PackedScene" uid="uid://c71ucj6e05lfr" path="res://LockScenes/letter_wheel.tscn" id="2_eps30"]
+[ext_resource type="Script" path="res://LockScenes/UIScenes/LockUI.gd" id="3_nl6ao"]
+[ext_resource type="FontFile" uid="uid://dta5ub6hkqfo8" path="res://Fonts/mmrock9/MMRock9.ttf" id="4_cec34"]
+[ext_resource type="Theme" uid="uid://dfym1ny6kb6pj" path="res://Button.tres" id="5_do1uq"]
+[ext_resource type="Script" path="res://LockScenes/ResetSceneButton.gd" id="6_t7r7h"]
+[ext_resource type="Script" path="res://LockScenes/KeyCountCaesar.gd" id="6_xwlh0"]
+[ext_resource type="Texture2D" uid="uid://bq1h7pduxrcs6" path="res://Images/CheckBox.png" id="7_860q0"]
+[ext_resource type="Texture2D" uid="uid://xvmeimb8u53n" path="res://Images/CheckBoxYes.png" id="8_0qwf2"]
+[ext_resource type="Script" path="res://LockScenes/CaesarGoal.gd" id="8_ij0nr"]
+[ext_resource type="Script" path="res://LockScenes/GoalCaesar.gd" id="9_xsrn6"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w8ca2"]
+albedo_color = Color(0.546875, 0.546875, 0.546875, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_4dowo"]
+material = SubResource("StandardMaterial3D_w8ca2")
+
+[sub_resource type="Environment" id="Environment_6205a"]
+ambient_light_source = 2
+ambient_light_color = Color(0.871094, 0.871094, 0.871094, 1)
+
+[node name="CaesarCipherScene" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3.74512, -0.0476167, 0)
+
+[node name="LockSeries" type="Node3D" parent="." node_paths=PackedStringArray("lockArray")]
+script = ExtResource("1_rmynw")
+lockArray = [NodePath("LetterWheel0"), NodePath("LetterWheel1"), NodePath("LetterWheel2"), NodePath("LetterWheel3"), NodePath("LetterWheel4"), NodePath("LetterWheel5"), NodePath("LetterWheel6"), NodePath("LetterWheel7"), NodePath("LetterWheel8"), NodePath("LetterWheel9"), NodePath("LetterWheel10")]
+
+[node name="LetterWheel0" parent="LockSeries" instance=ExtResource("2_eps30")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.1999)
+
+[node name="LetterWheel1" parent="LockSeries" instance=ExtResource("2_eps30")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.761)
+
+[node name="LetterWheel2" parent="LockSeries" instance=ExtResource("2_eps30")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.3219)
+
+[node name="LetterWheel3" parent="LockSeries" instance=ExtResource("2_eps30")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.8829)
+
+[node name="LetterWheel4" parent="LockSeries" instance=ExtResource("2_eps30")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.4439)
+
+[node name="LetterWheel5" parent="LockSeries" instance=ExtResource("2_eps30")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.00490034)
+
+[node name="LetterWheel6" parent="LockSeries" instance=ExtResource("2_eps30")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.4341)
+
+[node name="LetterWheel7" parent="LockSeries" instance=ExtResource("2_eps30")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.872995)
+
+[node name="LetterWheel8" parent="LockSeries" instance=ExtResource("2_eps30")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.3121)
+
+[node name="LetterWheel9" parent="LockSeries" instance=ExtResource("2_eps30")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.7511)
+
+[node name="LetterWheel10" parent="LockSeries" instance=ExtResource("2_eps30")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.1901)
+
+[node name="Blinder" type="MeshInstance3D" parent="LockSeries"]
+transform = Transform3D(0.214606, 0, 0, 0, 1, 0, 0, 0, 5.60715, 2.28589, -0.76699, 0)
+mesh = SubResource("BoxMesh_4dowo")
+
+[node name="Blinder2" type="MeshInstance3D" parent="LockSeries"]
+transform = Transform3D(0.214606, 0, 0, 0, 1, 0, 0, 0, 5.60715, 2.28589, 0.712501, 0)
+mesh = SubResource("BoxMesh_4dowo")
+
+[node name="Blinder3" type="MeshInstance3D" parent="LockSeries"]
+transform = Transform3D(0.214606, 0, 0, 0, 1, 0, 0, 0, 0.37679, 2.286, 0.019, -2.612)
+mesh = SubResource("BoxMesh_4dowo")
+
+[node name="Blinder4" type="MeshInstance3D" parent="LockSeries"]
+transform = Transform3D(0.214606, 0, 0, 0, 1, 0, 0, 0, 0.37679, 2.28589, 0.0193236, 2.61154)
+mesh = SubResource("BoxMesh_4dowo")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_6205a")
+
+[node name="MarginContainer" type="MarginContainer" parent="." node_paths=PackedStringArray("locks", "textBox", "keyUpButton", "keyDownButton")]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -166.0
+offset_bottom = -62.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 3
+script = ExtResource("3_nl6ao")
+locks = NodePath("../LockSeries")
+textBox = NodePath("CenterContainer/VBoxContainer/Plaintext")
+keyUpButton = NodePath("CenterContainer/VBoxContainer/HBoxContainer/KeyUp")
+keyDownButton = NodePath("CenterContainer/VBoxContainer/HBoxContainer/KeyDown")
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/CenterContainer"]
+layout_mode = 2
+
+[node name="Plaintext" type="LineEdit" parent="MarginContainer/CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(350, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("4_cec34")
+text = "Hello World"
+placeholder_text = "Enter Float Here"
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="KeyUp" type="Button" parent="MarginContainer/CenterContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Increase Key"
+
+[node name="KeyDown" type="Button" parent="MarginContainer/CenterContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Decrease Key"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="KeyCount" type="Label" parent="MarginContainer/CenterContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("5_do1uq")
+text = "Current Key:"
+
+[node name="KeyCount2" type="Label" parent="MarginContainer/CenterContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(130, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("5_do1uq")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("6_xwlh0")
+
+[node name="Buttons" type="CenterContainer" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -380.0
+offset_bottom = 104.0
+grow_horizontal = 0
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="VBoxContainer" parent="Buttons"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="Buttons/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("5_do1uq")
+text = "RESET"
+script = ExtResource("6_t7r7h")
+
+[node name="Goals" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(400, 0)
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 300.0
+grow_vertical = 2
+size_flags_horizontal = 3
+
+[node name="Goal1" type="HBoxContainer" parent="Goals" node_paths=PackedStringArray("keyTracker", "plainTextLine", "currentTexture")]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+alignment = 2
+script = ExtResource("8_ij0nr")
+keyTracker = NodePath("../../MarginContainer/CenterContainer/VBoxContainer/HBoxContainer2/KeyCount2")
+plainTextLine = NodePath("../../MarginContainer/CenterContainer/VBoxContainer/Plaintext")
+neededPlainText = "ABC"
+neededCount = 23
+currentTexture = NodePath("TextureRect")
+imageNo = ExtResource("7_860q0")
+imageYes = ExtResource("8_0qwf2")
+
+[node name="Dash" type="Label" parent="Goals/Goal1"]
+custom_minimum_size = Vector2(20, 50)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 30
+text = "-
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Goal" type="Button" parent="Goals/Goal1" node_paths=PackedStringArray("plainText")]
+custom_minimum_size = Vector2(300, 50)
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("5_do1uq")
+theme_override_font_sizes/font_size = 11
+text = "With plaintext \"ABC\", make the lock say \"XYZ\""
+flat = true
+autowrap_mode = 3
+script = ExtResource("9_xsrn6")
+plainText = NodePath("../../../MarginContainer/CenterContainer/VBoxContainer/Plaintext")
+startingText = "ABC"
+
+[node name="TextureRect" type="TextureRect" parent="Goals/Goal1"]
+custom_minimum_size = Vector2(0, 35)
+layout_mode = 2
+texture = ExtResource("7_860q0")
+expand_mode = 3
+
+[node name="Goal2" type="HBoxContainer" parent="Goals"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+alignment = 2
+
+[node name="Dash" type="Label" parent="Goals/Goal2"]
+custom_minimum_size = Vector2(20, 50)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 30
+text = "-
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Goal" type="Button" parent="Goals/Goal2" node_paths=PackedStringArray("plainText")]
+custom_minimum_size = Vector2(300, 50)
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("5_do1uq")
+theme_override_font_sizes/font_size = 11
+text = "Turn the plaintext \"URYYB JBEYQ\" into something readable"
+flat = true
+autowrap_mode = 3
+script = ExtResource("9_xsrn6")
+plainText = NodePath("../../../MarginContainer/CenterContainer/VBoxContainer/Plaintext")
+startingText = "URYYB JBEYQ"
+
+[node name="TextureRect" type="TextureRect" parent="Goals/Goal2"]
+custom_minimum_size = Vector2(0, 35)
+layout_mode = 2
+texture = ExtResource("7_860q0")
+expand_mode = 3
+
+[connection signal="text_submitted" from="MarginContainer/CenterContainer/VBoxContainer/Plaintext" to="LockSeries" method="_on_plaintext_text_changed"]
+[connection signal="text_submitted" from="MarginContainer/CenterContainer/VBoxContainer/Plaintext" to="MarginContainer/CenterContainer/VBoxContainer/HBoxContainer2/KeyCount2" method="_on_plaintext_text_submitted"]
+[connection signal="pressed" from="MarginContainer/CenterContainer/VBoxContainer/HBoxContainer/KeyUp" to="LockSeries" method="_on_up_button_pressed"]
+[connection signal="pressed" from="MarginContainer/CenterContainer/VBoxContainer/HBoxContainer/KeyUp" to="MarginContainer/CenterContainer/VBoxContainer/HBoxContainer2/KeyCount2" method="_on_key_up_pressed"]
+[connection signal="pressed" from="MarginContainer/CenterContainer/VBoxContainer/HBoxContainer/KeyDown" to="LockSeries" method="_on_down_button_pressed"]
+[connection signal="pressed" from="MarginContainer/CenterContainer/VBoxContainer/HBoxContainer/KeyDown" to="MarginContainer/CenterContainer/VBoxContainer/HBoxContainer2/KeyCount2" method="_on_key_down_pressed"]
+[connection signal="pressed" from="Buttons/HBoxContainer/Button" to="Buttons/HBoxContainer/Button" method="_on_pressed"]
+[connection signal="pressed" from="Goals/Goal1/Goal" to="Goals/Goal1/Goal" method="_on_pressed"]
+[connection signal="pressed" from="Goals/Goal2/Goal" to="Goals/Goal2/Goal" method="_on_pressed"]
