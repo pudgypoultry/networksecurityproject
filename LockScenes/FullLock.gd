@@ -19,6 +19,13 @@ func SetLockToWord(word : String):
 		lockArray[lockNum].ResetLetter()
 
 
+func GetCurrentWord():
+	var returnString = ""
+	for lock in lockArray:
+		returnString += lock.currentLetter
+	return returnString
+
+
 func IsAlphabetical(word : String):
 	var regex = RegEx.new()
 	regex.compile("[A-Za-z]")

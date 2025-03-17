@@ -1,0 +1,353 @@
+[gd_scene load_steps=11 format=3 uid="uid://5nn5h2cdaach"]
+
+[ext_resource type="Script" path="res://LockScenes/FullLock.gd" id="1_8oqlw"]
+[ext_resource type="PackedScene" uid="uid://c71ucj6e05lfr" path="res://LockScenes/letter_wheel.tscn" id="2_f311k"]
+[ext_resource type="Theme" uid="uid://dfym1ny6kb6pj" path="res://Button.tres" id="3_egkpg"]
+[ext_resource type="Script" path="res://LockScenes/UIScenes/DESEncryptButton.gd" id="4_voh66"]
+[ext_resource type="Script" path="res://LockScenes/UIScenes/ResetSceneButton.gd" id="5_h3aow"]
+[ext_resource type="Script" path="res://LockScenes/Tools/ActionStackManager.gd" id="7_pmm0l"]
+[ext_resource type="Script" path="res://Scripts/ActionStack.gd" id="8_gi3un"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w8ca2"]
+albedo_color = Color(0.546875, 0.546875, 0.546875, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_4dowo"]
+material = SubResource("StandardMaterial3D_w8ca2")
+
+[sub_resource type="Environment" id="Environment_6205a"]
+ambient_light_source = 2
+ambient_light_color = Color(0.871094, 0.871094, 0.871094, 1)
+
+[node name="DESDemo" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3.9779, -0.0476167, 0)
+
+[node name="LockSeries" type="Node3D" parent="." node_paths=PackedStringArray("lockArray")]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 0, 1.81)
+script = ExtResource("1_8oqlw")
+lockArray = [NodePath("LetterWheel0"), NodePath("LetterWheel1"), NodePath("LetterWheel2"), NodePath("LetterWheel3"), NodePath("LetterWheel4"), NodePath("LetterWheel5"), NodePath("LetterWheel6"), NodePath("LetterWheel7"), NodePath("LetterWheel8"), NodePath("LetterWheel9"), NodePath("LetterWheel10")]
+
+[node name="LetterWheel0" parent="LockSeries" instance=ExtResource("2_f311k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.1999)
+
+[node name="LetterWheel1" parent="LockSeries" instance=ExtResource("2_f311k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.761)
+
+[node name="LetterWheel2" parent="LockSeries" instance=ExtResource("2_f311k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.3219)
+
+[node name="LetterWheel3" parent="LockSeries" instance=ExtResource("2_f311k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.8829)
+
+[node name="LetterWheel4" parent="LockSeries" instance=ExtResource("2_f311k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.4439)
+
+[node name="LetterWheel5" parent="LockSeries" instance=ExtResource("2_f311k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.00490034)
+
+[node name="LetterWheel6" parent="LockSeries" instance=ExtResource("2_f311k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.4341)
+
+[node name="LetterWheel7" parent="LockSeries" instance=ExtResource("2_f311k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.872995)
+
+[node name="LetterWheel8" parent="LockSeries" instance=ExtResource("2_f311k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.3121)
+
+[node name="LetterWheel9" parent="LockSeries" instance=ExtResource("2_f311k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.7511)
+
+[node name="LetterWheel10" parent="LockSeries" instance=ExtResource("2_f311k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.1901)
+
+[node name="Blinder" type="MeshInstance3D" parent="LockSeries"]
+transform = Transform3D(0.214606, 0, 0, 0, 0.7, 0, 0, 0, 10.3206, 2.28589, -0.76699, -2.42602)
+mesh = SubResource("BoxMesh_4dowo")
+
+[node name="Blinder2" type="MeshInstance3D" parent="LockSeries"]
+transform = Transform3D(0.214606, 0, 0, 0, 0.7, 0, 0, 0, 10.3206, 2.28589, 0.712501, -2.42602)
+mesh = SubResource("BoxMesh_4dowo")
+
+[node name="Blinder3" type="MeshInstance3D" parent="LockSeries"]
+transform = Transform3D(0.214606, 0, 0, 0, 1, 0, 0, 0, 0.37679, 2.286, 0.019, -2.612)
+visible = false
+mesh = SubResource("BoxMesh_4dowo")
+
+[node name="Blinder4" type="MeshInstance3D" parent="LockSeries"]
+transform = Transform3D(0.214606, 0, 0, 0, 1, 0, 0, 0, 0.37679, 2.28589, 0.0193236, 2.61154)
+visible = false
+mesh = SubResource("BoxMesh_4dowo")
+
+[node name="LockSeries2" type="Node3D" parent="." node_paths=PackedStringArray("lockArray")]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 0, -1.81)
+script = ExtResource("1_8oqlw")
+lockArray = [NodePath("LetterWheel0"), NodePath("LetterWheel1"), NodePath("LetterWheel2"), NodePath("LetterWheel3"), NodePath("LetterWheel4"), NodePath("LetterWheel5"), NodePath("LetterWheel6"), NodePath("LetterWheel7"), NodePath("LetterWheel8"), NodePath("LetterWheel9"), NodePath("LetterWheel10")]
+
+[node name="LetterWheel0" parent="LockSeries2" instance=ExtResource("2_f311k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.1999)
+
+[node name="LetterWheel1" parent="LockSeries2" instance=ExtResource("2_f311k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.761)
+
+[node name="LetterWheel2" parent="LockSeries2" instance=ExtResource("2_f311k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.3219)
+
+[node name="LetterWheel3" parent="LockSeries2" instance=ExtResource("2_f311k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.8829)
+
+[node name="LetterWheel4" parent="LockSeries2" instance=ExtResource("2_f311k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.4439)
+
+[node name="LetterWheel5" parent="LockSeries2" instance=ExtResource("2_f311k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.00490034)
+
+[node name="LetterWheel6" parent="LockSeries2" instance=ExtResource("2_f311k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.4341)
+
+[node name="LetterWheel7" parent="LockSeries2" instance=ExtResource("2_f311k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.872995)
+
+[node name="LetterWheel8" parent="LockSeries2" instance=ExtResource("2_f311k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.3121)
+
+[node name="LetterWheel9" parent="LockSeries2" instance=ExtResource("2_f311k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.7511)
+
+[node name="LetterWheel10" parent="LockSeries2" instance=ExtResource("2_f311k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.1901)
+
+[node name="Blinder" type="MeshInstance3D" parent="LockSeries2"]
+transform = Transform3D(0.214606, 0, 0, 0, 1, 0, 0, 0, 5.60715, 2.28589, -0.76699, 0)
+visible = false
+mesh = SubResource("BoxMesh_4dowo")
+
+[node name="Blinder2" type="MeshInstance3D" parent="LockSeries2"]
+transform = Transform3D(0.214606, 0, 0, 0, 1, 0, 0, 0, 5.60715, 2.28589, 0.712501, 0)
+visible = false
+mesh = SubResource("BoxMesh_4dowo")
+
+[node name="Blinder3" type="MeshInstance3D" parent="LockSeries2"]
+transform = Transform3D(0.214606, 0, 0, 0, 1, 0, 0, 0, 0.37679, 2.286, 0.019, -2.612)
+visible = false
+mesh = SubResource("BoxMesh_4dowo")
+
+[node name="Blinder4" type="MeshInstance3D" parent="LockSeries2"]
+transform = Transform3D(0.214606, 0, 0, 0, 1, 0, 0, 0, 0.37679, 2.28589, 0.0193236, 2.61154)
+visible = false
+mesh = SubResource("BoxMesh_4dowo")
+
+[node name="CombinedLock" type="Node3D" parent="." node_paths=PackedStringArray("lockArray")]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, -13.0067, -1.81)
+script = ExtResource("1_8oqlw")
+lockArray = [NodePath("LetterWheel0"), NodePath("LetterWheel1"), NodePath("LetterWheel2"), NodePath("LetterWheel3"), NodePath("LetterWheel4"), NodePath("LetterWheel5"), NodePath("LetterWheel6"), NodePath("LetterWheel7"), NodePath("LetterWheel8"), NodePath("LetterWheel9"), NodePath("LetterWheel10"), NodePath("LetterWheel11"), NodePath("LetterWheel12"), NodePath("LetterWheel13"), NodePath("LetterWheel14"), NodePath("LetterWheel15"), NodePath("LetterWheel16"), NodePath("LetterWheel17"), NodePath("LetterWheel18"), NodePath("LetterWheel19"), NodePath("LetterWheel20"), NodePath("LetterWheel21")]
+
+[node name="LetterWheel0" parent="CombinedLock" instance=ExtResource("2_f311k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7.02485)
+
+[node name="LetterWheel1" parent="CombinedLock" instance=ExtResource("2_f311k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6.58595)
+
+[node name="LetterWheel2" parent="CombinedLock" instance=ExtResource("2_f311k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6.14685)
+
+[node name="LetterWheel3" parent="CombinedLock" instance=ExtResource("2_f311k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5.70785)
+
+[node name="LetterWheel4" parent="CombinedLock" instance=ExtResource("2_f311k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5.26885)
+
+[node name="LetterWheel5" parent="CombinedLock" instance=ExtResource("2_f311k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.82985)
+
+[node name="LetterWheel6" parent="CombinedLock" instance=ExtResource("2_f311k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.39085)
+
+[node name="LetterWheel7" parent="CombinedLock" instance=ExtResource("2_f311k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.95196)
+
+[node name="LetterWheel8" parent="CombinedLock" instance=ExtResource("2_f311k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.51285)
+
+[node name="LetterWheel9" parent="CombinedLock" instance=ExtResource("2_f311k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.07385)
+
+[node name="LetterWheel10" parent="CombinedLock" instance=ExtResource("2_f311k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.63485)
+
+[node name="LetterWheel11" parent="CombinedLock" instance=ExtResource("2_f311k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.1999)
+
+[node name="LetterWheel12" parent="CombinedLock" instance=ExtResource("2_f311k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.761)
+
+[node name="LetterWheel13" parent="CombinedLock" instance=ExtResource("2_f311k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.3219)
+
+[node name="LetterWheel14" parent="CombinedLock" instance=ExtResource("2_f311k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.8829)
+
+[node name="LetterWheel15" parent="CombinedLock" instance=ExtResource("2_f311k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.4439)
+
+[node name="LetterWheel16" parent="CombinedLock" instance=ExtResource("2_f311k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.00490034)
+
+[node name="LetterWheel17" parent="CombinedLock" instance=ExtResource("2_f311k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.4341)
+
+[node name="LetterWheel18" parent="CombinedLock" instance=ExtResource("2_f311k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.872995)
+
+[node name="LetterWheel19" parent="CombinedLock" instance=ExtResource("2_f311k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.3121)
+
+[node name="LetterWheel20" parent="CombinedLock" instance=ExtResource("2_f311k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.7511)
+
+[node name="LetterWheel21" parent="CombinedLock" instance=ExtResource("2_f311k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.1901)
+
+[node name="Blinder" type="MeshInstance3D" parent="CombinedLock"]
+transform = Transform3D(0.215, 0, 0, 0, 0.7, 0, 0, 0, 10.321, 2.28589, -0.766991, 2.3662)
+mesh = SubResource("BoxMesh_4dowo")
+
+[node name="Blinder2" type="MeshInstance3D" parent="CombinedLock"]
+transform = Transform3D(0.215, 0, 0, 0, 0.7, 0, 0, 0, 10.321, 2.28589, 0.712502, 2.3662)
+mesh = SubResource("BoxMesh_4dowo")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_6205a")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+custom_minimum_size = Vector2(0, 200)
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -202.0
+offset_top = -200.0
+offset_right = 202.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 3
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/CenterContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="HBoxContainer" parent="MarginContainer/CenterContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Encrypt" type="Button" parent="MarginContainer/CenterContainer/VBoxContainer2/VBoxContainer" node_paths=PackedStringArray("complexityLine", "actionStacks")]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("3_egkpg")
+text = "ENCRYPT"
+script = ExtResource("4_voh66")
+complexityLine = NodePath("../../HBoxContainer/FirstWheel")
+actionStacks = [NodePath("../../../../../ActionStackLeft"), NodePath("../../../../../ActionStackRight")]
+
+[node name="Decrypt" type="Button" parent="MarginContainer/CenterContainer/VBoxContainer2/VBoxContainer"]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("3_egkpg")
+text = "DECRYPT"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/CenterContainer/VBoxContainer2"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="MarginContainer/CenterContainer/VBoxContainer2/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_egkpg")
+text = "HOW MANY STEPS: "
+
+[node name="FirstWheel" type="SpinBox" parent="MarginContainer/CenterContainer/VBoxContainer2/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_egkpg")
+max_value = 10.0
+alignment = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -350.0
+offset_bottom = 104.0
+grow_horizontal = 0
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="CenterContainer/HBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("3_egkpg")
+text = "RESET"
+script = ExtResource("5_h3aow")
+
+[node name="ActionStackLeft" type="Node" parent="." node_paths=PackedStringArray("locks", "timer")]
+script = ExtResource("8_gi3un")
+locks = NodePath("../LockSeries")
+timer = NodePath("../Timer")
+startingWord = "CRYPTOGRAPH"
+
+[node name="ActionStackRight" type="Node" parent="." node_paths=PackedStringArray("locks", "timer")]
+script = ExtResource("8_gi3un")
+locks = NodePath("../LockSeries2")
+timer = NodePath("../Timer2")
+startingWord = "YISSUPERFUN"
+
+[node name="ActionStackCombined" type="Node" parent="." node_paths=PackedStringArray("locks", "timer")]
+script = ExtResource("8_gi3un")
+locks = NodePath("../CombinedLock")
+timer = NodePath("../Timer3")
+side = 2
+startingWord = "AAAAAAAAAAAAAAAAAAAAAAA"
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="Timer2" type="Timer" parent="."]
+
+[node name="Timer3" type="Timer" parent="."]
+
+[node name="ActionStackManager" type="Node" parent="." node_paths=PackedStringArray("leftStack", "rightStack", "combinedStack", "leftLock", "rightLock", "combinedLock", "complexityLine")]
+script = ExtResource("7_pmm0l")
+leftStack = NodePath("../ActionStackLeft")
+rightStack = NodePath("../ActionStackRight")
+combinedStack = NodePath("../ActionStackCombined")
+leftLock = NodePath("../LockSeries")
+rightLock = NodePath("../LockSeries2")
+combinedLock = NodePath("../CombinedLock")
+complexityLine = NodePath("../MarginContainer/CenterContainer/VBoxContainer2/HBoxContainer/FirstWheel")
+
+[node name="CenterContainer2" type="CenterContainer" parent="."]
+custom_minimum_size = Vector2(0, 100)
+offset_right = 414.0
+offset_bottom = 21.0
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="CenterContainer2"]
+layout_mode = 2
+theme = ExtResource("3_egkpg")
+theme_override_font_sizes/font_size = 12
+text = "Notice that we perform X 
+rotations and swaps on each
+half, then that many on
+the whole lock. We can still
+decrypt it after doing so!"
+
+[connection signal="pressed" from="MarginContainer/CenterContainer/VBoxContainer2/VBoxContainer/Encrypt" to="MarginContainer/CenterContainer/VBoxContainer2/VBoxContainer/Encrypt" method="_on_pressed"]
+[connection signal="pressed" from="MarginContainer/CenterContainer/VBoxContainer2/VBoxContainer/Decrypt" to="ActionStackCombined" method="Decrypt"]
+[connection signal="pressed" from="CenterContainer/HBoxContainer/Button" to="CenterContainer/HBoxContainer/Button" method="_on_pressed"]

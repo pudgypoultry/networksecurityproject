@@ -3,17 +3,22 @@ extends Node
 class_name ActionStack
 
 enum ActionType {SWAP, ROTATE}
-
+enum WhichLock {LEFT, RIGHT, COMBINED}
 @export var locks : LockArray
 @export var movementTime = 1.0
 var actionStack = []
 var currentTween1 : Tween
 var currentTween2 : Tween
 @export var timer : Timer
+@export var side : WhichLock
+@export var startingWord : String
+var doneWithEncryption = false
+var doneWithDecryption = false
 
 
 func _ready():
-	locks.SetLockToWord("Hello World")
+	locks.SetLockToWord(startingWord)
+	# Demo(10)
 	#await get_tree().create_timer(6).timeout
 	#Push(ActionType.ROTATE, 0, 1)
 	#await get_tree().create_timer(movementTime).timeout
@@ -98,17 +103,18 @@ func Decrypt():
 	var lastAction = [ActionType.ROTATE, 0, 0]
 	var currentAction = lastAction
 	while len(actionStack) > 0:
-		match currentAction[0]:
-			ActionType.ROTATE:
-				timer.wait_time = currentAction[2] * 0.1 + 0.2
-				timer.start()
-			ActionType.SWAP:
-				timer.wait_time = movementTime + 0.2
-				timer.start()
-		await timer.timeout
 		currentAction = Pop()
 		Execute(currentAction[0], currentAction[1], currentAction[2])
+		match currentAction[0]:
+			ActionType.ROTATE:
+				timer.wait_time = abs(currentAction[2]) * 0.2 + 0.4
+			ActionType.SWAP:
+				timer.wait_time = movementTime + 0.4
+		timer.start()
+		await timer.timeout
 		lastAction = currentAction
+	print(name, " is done")
+	doneWithDecryption = true
 
 
 func TweenPosition(whatObject, whichTween, desiredPosition, desiredLength):
@@ -117,3 +123,47 @@ func TweenPosition(whatObject, whichTween, desiredPosition, desiredLength):
 	whichTween.set_ease(Tween.EASE_IN_OUT)
 	whichTween.tween_property(whatObject, "position", desiredPosition, desiredLength)
 	return whichTween
+
+
+func Demo(complexity : int):
+	timer.wait_time = 1
+	timer.start()
+	await timer.timeout
+	if side == WhichLock.COMBINED:
+		for i in range(complexity):
+			# Rotate
+			if i % 2 == 0:
+				var whichWheel = randi_range(0, 21)
+				var howFar = randi_range(1, 10)
+				Push(ActionType.ROTATE, whichWheel, howFar)
+				timer.wait_time = howFar * 0.3 + 0.4
+				timer.start()
+			# Swap
+			else:
+				var firstWheel = randi_range(0, 10)
+				var secondWheel = randi_range(11, 21)
+				Push(ActionType.SWAP, firstWheel, secondWheel)
+				timer.wait_time = movementTime + 0.4
+				timer.start()
+			await timer.timeout
+	else:
+		for i in range(complexity):
+			# Rotate
+			if i % 2 == 0:
+				var whichWheel = randi_range(0, 10)
+				var howFar = randi_range(1, 10)
+				Push(ActionType.ROTATE, whichWheel, howFar)
+				timer.wait_time = howFar * 0.3 + 0.4
+				timer.start()
+			# Swap
+			else:
+				var firstWheel = randi_range(0, 10)
+				var secondWheel = randi_range(0, 10)
+				while secondWheel == firstWheel:
+					secondWheel = randi_range(0, 10)
+				Push(ActionType.SWAP, firstWheel, secondWheel)
+				timer.wait_time = movementTime + 0.4
+				timer.start()
+			await timer.timeout
+	print(name, " is done encrypting")
+	doneWithEncryption = true
