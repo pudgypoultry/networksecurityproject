@@ -1,0 +1,152 @@
+[gd_scene load_steps=6 format=3 uid="uid://vehakbb7mby7"]
+
+[ext_resource type="Script" path="res://LockScenes/UIScenes/Scripts/SwipingPresentation.gd" id="1_go6uu"]
+[ext_resource type="Texture2D" uid="uid://b0d2fegddwq86" path="res://Images/how-does-des-encryption-work.png" id="2_52b74"]
+[ext_resource type="Texture2D" uid="uid://cyud8g3qn3qk3" path="res://Images/AESdecryption.png" id="3_ls1v7"]
+[ext_resource type="Theme" uid="uid://dfym1ny6kb6pj" path="res://Fonts/Button.tres" id="4_cskar"]
+[ext_resource type="Script" path="res://LockScenes/UIScenes/Scripts/SceneLoadButton.gd" id="5_v8t7q"]
+
+[node name="SwipingPresentation" type="ScrollContainer" node_paths=PackedStringArray("slides")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scroll_vertical = 1818
+vertical_scroll_mode = 3
+script = ExtResource("1_go6uu")
+slides = [NodePath("VBoxContainer/MarginContainer"), NodePath("VBoxContainer/MarginContainer2"), NodePath("VBoxContainer/MarginContainer3"), NodePath("VBoxContainer/MarginContainer4")]
+customMax = 2412
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(1000, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+
+[node name="First" type="Label" parent="VBoxContainer/MarginContainer"]
+custom_minimum_size = Vector2(0, 600)
+layout_mode = 2
+text = "Now that you've seen that any series of manipulations can be undone given that we know the order in which they were performed, you have the necessary understanding to learn about \"DES\" and \"AES\", the latter of the two being an encryption scheme currently used today on the internet.
+
+\"DES\" was invented in the 70's and stands for \"Data Encryption Standard\". AES stands for \"Advanced Encryption Standard\" and was invented in 2001. In the same way that the previously mentioned Enigma machine was effectively just a supercharged version of the Vigenere cipher, DES and AES are effectively supercharged versions of the swap-and-rotate toy you just experimented with."
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(1000, 600)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/MarginContainer2"]
+custom_minimum_size = Vector2(0, 625)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer2/HBoxContainer"]
+layout_mode = 2
+
+[node name="First" type="Label" parent="VBoxContainer/MarginContainer2/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(600, 400)
+layout_mode = 2
+text = "DES works by first mixing up the characters of a message, then chopping the message into separate piece. Each separate piece is then manipulated individually in a multitude of ways before bringing all of the pieces back together for one final round of blending.
+
+A password/key can be provided to the encryption algorithm that will provide DES with a unique way to manipulate that plaintext. If the recipient of the encrypted message knows the key, they can provide DES with that key and it will undo all of those manipulations to reveal the original plaintext."
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="First2" type="Label" parent="VBoxContainer/MarginContainer2/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(600, 100)
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Image Credit: https://sectigostore.com/blog/what-is-des-encryption-a-look-at-the-des-algorithm/"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/MarginContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(375, 0)
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("2_52b74")
+expand_mode = 5
+
+[node name="MarginContainer3" type="MarginContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(1000, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/MarginContainer3"]
+custom_minimum_size = Vector2(0, 625)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer3/HBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="First" type="Label" parent="VBoxContainer/MarginContainer3/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 400)
+layout_mode = 2
+text = "AES works very similarly, the main difference being its overall complexity as well as the sizes of keys it allows.
+
+DES uses 56 bit keys, but can be performed multiple times with different keys, and a standard method for \"Triple DES\" has been made that effectively provides 112 bits of encryption."
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="First2" type="Label" parent="VBoxContainer/MarginContainer3/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Image Credit:
+https://www.wallarm.com/what/what-is-aes-advanced-encryption-standard"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/MarginContainer3/HBoxContainer"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("3_ls1v7")
+
+[node name="MarginContainer4" type="MarginContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(1000, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer4"]
+layout_mode = 2
+
+[node name="First" type="Label" parent="VBoxContainer/MarginContainer4/VBoxContainer"]
+custom_minimum_size = Vector2(0, 400)
+layout_mode = 2
+text = "AES, however, can use a 128, a 192, or a 256 bit key. This means that if you multiply 2 by itself 256 times, you'd have the number of possible keys someone would have to try in order to break it!
+
+2^256 = 115,792,089,237,316,195,423,570,985,008,687,907,853,269,984,665,640,564,039,457,584,007,913,129,639,936 possibilities!
+
+For context, an average home computer can perform on the magnitude of 1,000,000,000 operations per second. So even modern computers have serious trouble breaking this level of encryption without significant, military-grade resources! This is why AES is commonly used on the internet today.
+
+In the next interactive activity, you'll get to see an example of this separation of one large plaintext into two separate blocks. Each side will be mixed and rotated according to the level of complexity you provide to it. The complexity relates to the number of total steps that will be performed in the encryption during each stage. Once you've seen an encryption larger than 10 steps, the button for the next section will appear!"
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/MarginContainer4/VBoxContainer"]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Button" type="Button" parent="VBoxContainer/MarginContainer4/VBoxContainer/MarginContainer"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("4_cskar")
+text = "PROCEED"
+script = ExtResource("5_v8t7q")
+nextScene = "res://LockScenes/3DScenes/DESDemo.tscn"
+
+[connection signal="pressed" from="VBoxContainer/MarginContainer4/VBoxContainer/MarginContainer/Button" to="VBoxContainer/MarginContainer4/VBoxContainer/MarginContainer/Button" method="_on_pressed"]

@@ -1,0 +1,138 @@
+[gd_scene load_steps=4 format=3 uid="uid://blft7ji2xm4t8"]
+
+[ext_resource type="Script" path="res://LockScenes/UIScenes/Scripts/SwipingPresentation.gd" id="1_xjewd"]
+[ext_resource type="Theme" uid="uid://dfym1ny6kb6pj" path="res://Fonts/Button.tres" id="2_suc0e"]
+[ext_resource type="Script" path="res://LockScenes/UIScenes/Scripts/SceneLoadButton.gd" id="3_sci3j"]
+
+[node name="SwipingPresentation" type="ScrollContainer" node_paths=PackedStringArray("slides")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scroll_vertical = 1165
+vertical_scroll_mode = 3
+script = ExtResource("1_xjewd")
+slides = [NodePath("VBoxContainer/MarginContainer"), NodePath("VBoxContainer/MarginContainer2"), NodePath("VBoxContainer/MarginContainer3"), NodePath("VBoxContainer/MarginContainer4")]
+customMax = 2412
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(1000, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+
+[node name="First" type="Label" parent="VBoxContainer/MarginContainer"]
+custom_minimum_size = Vector2(0, 600)
+layout_mode = 2
+text = "Up until now, all of these encryption methods you've been learning about have had something in common: they work on the idea that decrypting the message is the same as simply working all of the encryption steps backwards. When the key to the decrypting the ciphertext is to simply walk the same steps as the encryption but backwards; we call this a \"Symmetric Key\" encryption.
+
+But there exist encryption functions that do not follow this rule, that have a different method of decrypting than is used to encrypt; we call these methods \"Asymmetric Key\" encryptions."
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(1000, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+
+[node name="First2" type="Label" parent="VBoxContainer/MarginContainer2"]
+custom_minimum_size = Vector2(0, 600)
+layout_mode = 2
+text = "Unfortunately, a full understanding of asymmetric cryptosystems requires a bit more of a background in math than these lessons are able to provide, but you can think of it like this:
+
+Imagine if you couldn't turn the wheels backward, you and I had a way of secrety signaling to one another how many times I rotated each individual wheel. You would be able to retrieve the original message by rotating each wheel until it finished one full revolution. This would be an asymmetric key, rather than \"undoing\" the rotations, you \"completed\" the remaining portion of the rotations. 
+
+By using the fact that all of this math relies on revolutions of wheels, we simply signal to each other how many ticks of the wheel are needed until you can be sure that you've made one completed revolution."
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="MarginContainer3" type="MarginContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(1000, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer3"]
+layout_mode = 2
+
+[node name="First" type="Label" parent="VBoxContainer/MarginContainer3/VBoxContainer"]
+custom_minimum_size = Vector2(0, 600)
+layout_mode = 2
+text = "You'll have to trust me that this always works, but if you're interested in learning more about it, the area of mathematics it falls under is called \"Number Theory\", and it's one of the only areas of math that is fully accessible to a complete beginner since it doesn't depend on a large amount of previous mathematical knowledge. The next portion contains an example of the process of one of our most powerful methods of encryption: RSA (named after its creators, Rivest, Shamir, and Adleman). If it feels like too much, please feel free to move past it, but if you think about division and remainders like we used to do in elementary school before we learned about decimal numbers, you may be able to understand why remainders are almost like those spinning wheels or combinations locks!"
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="MarginContainer5" type="MarginContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(1000, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+
+[node name="First2" type="Label" parent="VBoxContainer/MarginContainer5"]
+custom_minimum_size = Vector2(0, 600)
+layout_mode = 2
+text = "The following is an example of the use of RSA using small numbers:
+
+Choose two prime numbers p and q, let's choose p = 3 and q = 11
+Multiply them together to get n, p * q = 3 * 11 = 33, so n = 33
+Compute (p - 1) * (q - 1) = 2 * 10 = 20
+Choose a special number \"e\" that doesn't share any factors with 20. Let's choose e = 7
+We then pick any number that, when we multiply it by e and divide it by 20, has a remainder of 1, we can pick 3
+3 * 7 = 21, and 21 has a remainder of 1 when divided by 20
+We show everyone a public portion of our key, e and n => Public key = (7, 33)
+We keep private our own part of the key, d and n => (3, 33)
+
+That's a lot of math to get to this point, but here's the magic trick:
+
+Everything in a computer is 0's and 1's, so let's choose a message that can translate those 0's and 1's to \"2\"
+To get our ciphertext, we'll multiply our plaintext by itself a number of times equal to e (from our public key) 
+(2^7) = 128, 128/33 = 29. 29 is now our ciphertext.
+To decrypt c, we multiply it by itself a number of times equal to d, our private key. 
+m = 29^3 % 33 = 2. That was our original plaintext!
+
+In practice, we use prime numbers with hundreds of digits!"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="MarginContainer4" type="MarginContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(1000, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer4"]
+layout_mode = 2
+
+[node name="First" type="Label" parent="VBoxContainer/MarginContainer4/VBoxContainer"]
+custom_minimum_size = Vector2(0, 400)
+layout_mode = 2
+text = "As long as the means of encrypting plaintext is done algorithmically (or rather, in ordered, specific steps), there will always exist a way of performing those steps backwards.
+
+In the following interactive portion, you'll be given the ability to rotate a singular wheel, or to swap two wheels at a time. Do so as many times as you'd like, then press the \"DECRYPT\" button. You'll see that no matter what changes you apply to the combination lock, there will always exist the means of returning the text back to where it started.
+
+Experiment by performing at least 10 changes to the lock using the buttons in the top left corner. Once you have done so and pressed \"DECRYPT\", the button for the next portion will appear!"
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/MarginContainer4/VBoxContainer"]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Button" type="Button" parent="VBoxContainer/MarginContainer4/VBoxContainer/MarginContainer"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme = ExtResource("2_suc0e")
+text = "PROCEED"
+script = ExtResource("3_sci3j")
+nextScene = "res://LockScenes/3DScenes/ConfusionDefusionToy.tscn"
+
+[connection signal="pressed" from="VBoxContainer/MarginContainer4/VBoxContainer/MarginContainer/Button" to="VBoxContainer/MarginContainer4/VBoxContainer/MarginContainer/Button" method="_on_pressed"]

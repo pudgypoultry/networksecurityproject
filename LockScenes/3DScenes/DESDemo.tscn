@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://5nn5h2cdaach"]
+[gd_scene load_steps=12 format=3 uid="uid://5nn5h2cdaach"]
 
 [ext_resource type="Script" path="res://LockScenes/3DScenes/Scripts/FullLock.gd" id="1_8oqlw"]
 [ext_resource type="PackedScene" uid="uid://c71ucj6e05lfr" path="res://LockScenes/3DScenes/letter_wheel.tscn" id="2_f311k"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://LockScenes/UIScenes/Scripts/ResetSceneButton.gd" id="5_h3aow"]
 [ext_resource type="Script" path="res://LockScenes/Tools/ActionStackManager.gd" id="7_pmm0l"]
 [ext_resource type="Script" path="res://LockScenes/Tools/ActionStack.gd" id="8_gi3un"]
+[ext_resource type="Script" path="res://LockScenes/UIScenes/Scripts/SceneLoadButton.gd" id="8_mym7q"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l1oks"]
 albedo_color = Color(0.546875, 0.546875, 0.546875, 1)
@@ -297,21 +298,24 @@ theme = ExtResource("3_egkpg")
 text = "RESET"
 script = ExtResource("5_h3aow")
 
-[node name="ActionStackLeft" type="Node" parent="." node_paths=PackedStringArray("locks", "timer")]
+[node name="ActionStackLeft" type="Node" parent="." node_paths=PackedStringArray("locks", "proceedButton", "timer")]
 script = ExtResource("8_gi3un")
 locks = NodePath("../LockSeries")
+proceedButton = NodePath("../ProceedButton/Proceed")
 timer = NodePath("../Timer")
 startingWord = "CRYPTOGRAPH"
 
-[node name="ActionStackRight" type="Node" parent="." node_paths=PackedStringArray("locks", "timer")]
+[node name="ActionStackRight" type="Node" parent="." node_paths=PackedStringArray("locks", "proceedButton", "timer")]
 script = ExtResource("8_gi3un")
 locks = NodePath("../LockSeries2")
+proceedButton = NodePath("../ProceedButton/Proceed")
 timer = NodePath("../Timer2")
 startingWord = "YISSUPERFUN"
 
-[node name="ActionStackCombined" type="Node" parent="." node_paths=PackedStringArray("locks", "timer")]
+[node name="ActionStackCombined" type="Node" parent="." node_paths=PackedStringArray("locks", "proceedButton", "timer")]
 script = ExtResource("8_gi3un")
 locks = NodePath("../CombinedLock")
+proceedButton = NodePath("../ProceedButton/Proceed")
 timer = NodePath("../Timer3")
 side = 2
 startingWord = "AAAAAAAAAAAAAAAAAAAAAAA"
@@ -348,6 +352,46 @@ half, then that many on
 the whole lock. We can still
 decrypt it after doing so!"
 
+[node name="ProceedButton" type="CenterContainer" parent="."]
+custom_minimum_size = Vector2(300, 100)
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -134.0
+offset_top = -29.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 8
+
+[node name="Proceed" type="Button" parent="ProceedButton"]
+visible = false
+layout_mode = 2
+theme = ExtResource("3_egkpg")
+text = "PROCEED"
+script = ExtResource("8_mym7q")
+nextScene = "res://FinalScenes/VigenereScene.tscn"
+
+[node name="ProceedButton2" type="CenterContainer" parent="."]
+custom_minimum_size = Vector2(150, 50)
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -29.0
+offset_right = 80.0
+grow_vertical = 0
+size_flags_horizontal = 3
+
+[node name="Back" type="Button" parent="ProceedButton2"]
+layout_mode = 2
+theme = ExtResource("3_egkpg")
+text = "BACK"
+script = ExtResource("8_mym7q")
+nextScene = "res://FinalScenes/DESAESScene.tscn"
+
 [connection signal="pressed" from="MarginContainer/CenterContainer/VBoxContainer2/VBoxContainer/Encrypt" to="MarginContainer/CenterContainer/VBoxContainer2/VBoxContainer/Encrypt" method="_on_pressed"]
 [connection signal="pressed" from="MarginContainer/CenterContainer/VBoxContainer2/VBoxContainer/Decrypt" to="ActionStackCombined" method="Decrypt"]
 [connection signal="pressed" from="CenterContainer/HBoxContainer/Button" to="CenterContainer/HBoxContainer/Button" method="_on_pressed"]
+[connection signal="pressed" from="ProceedButton/Proceed" to="ProceedButton/Proceed" method="_on_pressed"]
+[connection signal="pressed" from="ProceedButton2/Back" to="ProceedButton2/Back" method="_on_pressed"]

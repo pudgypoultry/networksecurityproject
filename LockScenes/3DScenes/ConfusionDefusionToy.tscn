@@ -312,7 +312,7 @@ layout_mode = 2
 theme = ExtResource("5_j81wg")
 text = "PROCEED"
 script = ExtResource("9_yn2qv")
-nextScene = "res://FinalScenes/VigenereScene.tscn"
+nextScene = "res://FinalScenes/DESAESScene.tscn"
 
 [connection signal="pressed" from="MarginContainer/CenterContainer/VBoxContainer/Decrypt" to="MarginContainer/CenterContainer/VBoxContainer/Decrypt" method="_on_pressed"]
 [connection signal="pressed" from="CenterContainer/HBoxContainer/Button" to="CenterContainer/HBoxContainer/Button" method="_on_pressed"]

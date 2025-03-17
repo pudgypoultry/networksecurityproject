@@ -45,7 +45,9 @@ func _ready():
 	#Decrypt()
 
 func _process(delta):
-	stackTracker.text = str(len(actionStack))
+	if stackTracker:
+		stackTracker.text = str(len(actionStack))
+
 
 func Push(type : ActionType, x : int, y : int):
 	match type:
@@ -104,8 +106,9 @@ func Execute(type : ActionType, x : int, y : int):
 
 
 func Decrypt():
+	var makeButtonVisible = false
 	if len(actionStack) > 9:
-		proceedButton.visible = true
+		makeButtonVisible = true
 	var lastAction = [ActionType.ROTATE, 0, 0]
 	var currentAction = lastAction
 	while len(actionStack) > 0:
@@ -121,6 +124,8 @@ func Decrypt():
 		lastAction = currentAction
 	print(name, " is done")
 	doneWithDecryption = true
+	if makeButtonVisible:
+		proceedButton.visible = true
 
 
 func TweenPosition(whatObject, whichTween, desiredPosition, desiredLength):
@@ -137,20 +142,11 @@ func Demo(complexity : int):
 	await timer.timeout
 	if side == WhichLock.COMBINED:
 		for i in range(complexity):
-			# Rotate
-			if i % 2 == 0:
-				var whichWheel = randi_range(0, 21)
-				var howFar = randi_range(1, 10)
-				Push(ActionType.ROTATE, whichWheel, howFar)
-				timer.wait_time = howFar * 0.3 + 0.4
-				timer.start()
-			# Swap
-			else:
-				var firstWheel = randi_range(0, 10)
-				var secondWheel = randi_range(11, 21)
-				Push(ActionType.SWAP, firstWheel, secondWheel)
-				timer.wait_time = movementTime + 0.4
-				timer.start()
+			var firstWheel = randi_range(0, 10)
+			var secondWheel = randi_range(11, 21)
+			Push(ActionType.SWAP, firstWheel, secondWheel)
+			timer.wait_time = movementTime + 0.2
+			timer.start()
 			await timer.timeout
 	else:
 		for i in range(complexity):
@@ -159,7 +155,7 @@ func Demo(complexity : int):
 				var whichWheel = randi_range(0, 10)
 				var howFar = randi_range(1, 10)
 				Push(ActionType.ROTATE, whichWheel, howFar)
-				timer.wait_time = howFar * 0.3 + 0.4
+				timer.wait_time = howFar * 0.3 + 0.3
 				timer.start()
 			# Swap
 			else:
@@ -168,7 +164,7 @@ func Demo(complexity : int):
 				while secondWheel == firstWheel:
 					secondWheel = randi_range(0, 10)
 				Push(ActionType.SWAP, firstWheel, secondWheel)
-				timer.wait_time = movementTime + 0.4
+				timer.wait_time = movementTime + 0.3
 				timer.start()
 			await timer.timeout
 	print(name, " is done encrypting")
