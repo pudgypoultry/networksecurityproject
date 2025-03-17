@@ -145,6 +145,6 @@ theme = ExtResource("2_ivbom")
 text = "BACK TO
 MAIN"
 script = ExtResource("5_8iutc")
-nextScene = "res://LockScenes/3DScenes/CaesarCipherScene.tscn"
+nextScene = "res://FinalScenes/MainMenu.tscn"
 
 [connection signal="pressed" from="VBoxContainer/MarginContainer4/VBoxContainer/MarginContainer/Button" to="VBoxContainer/MarginContainer4/VBoxContainer/MarginContainer/Button" method="_on_pressed"]

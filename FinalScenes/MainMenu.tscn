@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://6xhcpuw8sucw"]
+[gd_scene load_steps=4 format=3 uid="uid://6xhcpuw8sucw"]
 
 [ext_resource type="Theme" uid="uid://dfym1ny6kb6pj" path="res://Fonts/Button.tres" id="1_bkbwc"]
 [ext_resource type="Script" path="res://LockScenes/UIScenes/Scripts/SceneLoadButton.gd" id="2_4exg3"]
+[ext_resource type="Script" path="res://FinalScenes/ExitButton.gd" id="3_1liq5"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -42,17 +43,34 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/VBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 350)
+[node name="CenterContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 175)
 layout_mode = 2
 
 [node name="Button" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer/CenterContainer"]
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
 theme = ExtResource("1_bkbwc")
 theme_override_font_sizes/font_size = 36
 text = "START"
 script = ExtResource("2_4exg3")
 nextScene = "res://FinalScenes/CaesarScene.tscn"
+
+[node name="CenterContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 175)
+layout_mode = 2
+
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer/CenterContainer2"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme = ExtResource("1_bkbwc")
+theme_override_font_sizes/font_size = 36
+text = "EXIT"
+script = ExtResource("3_1liq5")
 
 [node name="Label3" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -63,3 +81,4 @@ Written and Edited by Jonny Nelson
 For University of Oregon CS 533, and for anyone curious about topics in network security"
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer/CenterContainer/Button" to="MarginContainer/VBoxContainer/VBoxContainer/CenterContainer/Button" method="_on_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer/CenterContainer2/Button" to="MarginContainer/VBoxContainer/VBoxContainer/CenterContainer2/Button" method="_on_pressed"]
