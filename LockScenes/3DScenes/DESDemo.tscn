@@ -140,6 +140,7 @@ mesh = SubResource("BoxMesh_4dowo")
 
 [node name="CombinedLock" type="Node3D" parent="." node_paths=PackedStringArray("lockArray")]
 transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, -13.0067, -1.81)
+visible = false
 script = ExtResource("1_8oqlw")
 lockArray = [NodePath("LetterWheel0"), NodePath("LetterWheel1"), NodePath("LetterWheel2"), NodePath("LetterWheel3"), NodePath("LetterWheel4"), NodePath("LetterWheel5"), NodePath("LetterWheel6"), NodePath("LetterWheel7"), NodePath("LetterWheel8"), NodePath("LetterWheel9"), NodePath("LetterWheel10"), NodePath("LetterWheel11"), NodePath("LetterWheel12"), NodePath("LetterWheel13"), NodePath("LetterWheel14"), NodePath("LetterWheel15"), NodePath("LetterWheel16"), NodePath("LetterWheel17"), NodePath("LetterWheel18"), NodePath("LetterWheel19"), NodePath("LetterWheel20"), NodePath("LetterWheel21")]
 

@@ -30,16 +30,22 @@ func _process(delta: float) -> void:
 		var wordForCombinedLock = ""
 		wordForCombinedLock += leftLock.GetCurrentWord()
 		wordForCombinedLock += rightLock.GetCurrentWord()
+		combinedLock.visible = true
 		combinedLock.SetLockToWord(wordForCombinedLock)
-		await get_tree().create_timer(0.1).timeout
+		# await get_tree().create_timer(0.1).timeout
 		SwapLocks()
-		await get_tree().create_timer(0.1).timeout
+		leftLock.visible = false
+		rightLock.visible = false
+		# await get_tree().create_timer(0.1).timeout
 		combinedStack.Demo(int(complexityLine.get_line_edit().text))
 		
 	if combinedStack.doneWithDecryption && !swappedForDecryption:
 		swappedForDecryption = true
-		await get_tree().create_timer(0.1).timeout
+		leftLock.visible = true
+		rightLock.visible = true
+		# await get_tree().create_timer(0.1).timeout
 		SwapLocks()
-		await get_tree().create_timer(0.1).timeout
+		# await get_tree().create_timer(0.1).timeout
+		combinedLock.visible = false
 		leftStack.Decrypt()
 		rightStack.Decrypt()
