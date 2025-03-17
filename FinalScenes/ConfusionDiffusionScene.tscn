@@ -1,7 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://cubqor50yjntr"]
+[gd_scene load_steps=3 format=3 uid="uid://nntmia8ilu6e"]
 
-[ext_resource type="PackedScene" uid="uid://bwurfx0etyo2p" path="res://LockScenes/UIScenes/CaesarPresentation.tscn" id="1_sf0lg"]
-[ext_resource type="Theme" uid="uid://dfym1ny6kb6pj" path="res://Fonts/Button.tres" id="2_u21dw"]
+[ext_resource type="PackedScene" uid="uid://dg07l2at0u4n1" path="res://LockScenes/UIScenes/ConfusionDiffusionPresentation.tscn" id="1_a2c4j"]
+[ext_resource type="Theme" uid="uid://dfym1ny6kb6pj" path="res://Fonts/Button.tres" id="2_ukfv2"]
 
 [node name="GeneralPresentation" type="Control"]
 layout_mode = 3
@@ -11,8 +11,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="SwipingPresentation" parent="." instance=ExtResource("1_sf0lg")]
+[node name="SwipingPresentation" parent="." instance=ExtResource("1_a2c4j")]
 layout_mode = 1
+scroll_vertical = 100
 
 [node name="Buttons" type="CenterContainer" parent="."]
 custom_minimum_size = Vector2(200, 100)
@@ -37,7 +38,7 @@ custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme = ExtResource("2_u21dw")
+theme = ExtResource("2_ukfv2")
 text = "LAST"
 
 [node name="Continue" type="Button" parent="Buttons/HBoxContainer"]
@@ -45,7 +46,7 @@ custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme = ExtResource("2_u21dw")
+theme = ExtResource("2_ukfv2")
 text = "NEXT"
 
 [connection signal="pressed" from="Buttons/HBoxContainer/Back" to="SwipingPresentation" method="SlideUp"]

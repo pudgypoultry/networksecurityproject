@@ -9,6 +9,8 @@ enum WhichLock {LEFT, RIGHT, COMBINED}
 var actionStack = []
 var currentTween1 : Tween
 var currentTween2 : Tween
+@export var stackTracker : Label
+@export var proceedButton : Button
 @export var timer : Timer
 @export var side : WhichLock
 @export var startingWord : String
@@ -42,6 +44,8 @@ func _ready():
 	#await get_tree().create_timer(2).timeout
 	#Decrypt()
 
+func _process(delta):
+	stackTracker.text = str(len(actionStack))
 
 func Push(type : ActionType, x : int, y : int):
 	match type:
@@ -100,6 +104,8 @@ func Execute(type : ActionType, x : int, y : int):
 
 
 func Decrypt():
+	if len(actionStack) > 9:
+		proceedButton.visible = true
 	var lastAction = [ActionType.ROTATE, 0, 0]
 	var currentAction = lastAction
 	while len(actionStack) > 0:

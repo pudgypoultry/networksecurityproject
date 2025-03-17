@@ -1,10 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://bwurfx0etyo2p"]
+[gd_scene load_steps=5 format=3 uid="uid://bwurfx0etyo2p"]
 
 [ext_resource type="Script" path="res://LockScenes/UIScenes/Scripts/SwipingPresentation.gd" id="1_gs3w0"]
 [ext_resource type="Texture2D" uid="uid://5iocxgl1mc81" path="res://Images/EncryptionExample.png" id="2_yjho1"]
-[ext_resource type="Theme" uid="uid://dfym1ny6kb6pj" path="res://Button.tres" id="3_oy6tb"]
+[ext_resource type="Theme" uid="uid://dfym1ny6kb6pj" path="res://Fonts/Button.tres" id="3_oy6tb"]
 [ext_resource type="Script" path="res://LockScenes/UIScenes/Scripts/SceneLoadButton.gd" id="4_j1q1o"]
-[ext_resource type="PackedScene" uid="uid://c5u1gn02vqehi" path="res://LockScenes/3DScenes/CaesarCipherScene.tscn" id="5_wj5h0"]
 
 [node name="SwipingPresentation" type="ScrollContainer" node_paths=PackedStringArray("slides")]
 anchors_preset = 15
@@ -120,6 +119,6 @@ size_flags_vertical = 0
 theme = ExtResource("3_oy6tb")
 text = "PROCEED"
 script = ExtResource("4_j1q1o")
-nextScene = ExtResource("5_wj5h0")
+nextScene = "res://LockScenes/3DScenes/CaesarCipherScene.tscn"
 
 [connection signal="pressed" from="VBoxContainer/MarginContainer4/VBoxContainer/MarginContainer/Button" to="VBoxContainer/MarginContainer4/VBoxContainer/MarginContainer/Button" method="_on_pressed"]

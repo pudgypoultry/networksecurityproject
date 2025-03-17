@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://caop3w5y4dhd8"]
+[gd_scene load_steps=3 format=3 uid="uid://caop3w5y4dhd8"]
 
-[ext_resource type="Theme" uid="uid://dfym1ny6kb6pj" path="res://Button.tres" id="1_ce65b"]
+[ext_resource type="Theme" uid="uid://dfym1ny6kb6pj" path="res://Fonts/Button.tres" id="1_ce65b"]
+[ext_resource type="PackedScene" uid="uid://dr8b1thjbndur" path="res://LockScenes/UIScenes/VigenerePresentation.tscn" id="2_kw261"]
 
 [node name="GeneralPresentation" type="Control"]
 layout_mode = 3
@@ -9,6 +10,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="SwipingPresentation" parent="." instance=ExtResource("2_kw261")]
+layout_mode = 1
 
 [node name="Buttons" type="CenterContainer" parent="."]
 custom_minimum_size = Vector2(200, 100)
@@ -43,3 +47,6 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme = ExtResource("1_ce65b")
 text = "NEXT"
+
+[connection signal="pressed" from="Buttons/HBoxContainer/Back" to="SwipingPresentation" method="SlideUp"]
+[connection signal="pressed" from="Buttons/HBoxContainer/Continue" to="SwipingPresentation" method="SlideDown"]

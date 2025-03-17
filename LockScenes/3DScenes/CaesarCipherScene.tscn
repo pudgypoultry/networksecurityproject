@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://c71ucj6e05lfr" path="res://LockScenes/3DScenes/letter_wheel.tscn" id="2_eps30"]
 [ext_resource type="Script" path="res://LockScenes/UIScenes/Scripts/LockUI.gd" id="3_nl6ao"]
 [ext_resource type="FontFile" uid="uid://dta5ub6hkqfo8" path="res://Fonts/mmrock9/MMRock9.ttf" id="4_cec34"]
-[ext_resource type="Theme" uid="uid://dfym1ny6kb6pj" path="res://Button.tres" id="5_do1uq"]
+[ext_resource type="Theme" uid="uid://dfym1ny6kb6pj" path="res://Fonts/Button.tres" id="5_do1uq"]
 [ext_resource type="Script" path="res://LockScenes/UIScenes/Scripts/ResetSceneButton.gd" id="6_t7r7h"]
 [ext_resource type="Script" path="res://LockScenes/UIScenes/Scripts/KeyCountCaesar.gd" id="6_xwlh0"]
 [ext_resource type="Texture2D" uid="uid://bq1h7pduxrcs6" path="res://Images/CheckBox.png" id="7_860q0"]
@@ -283,6 +283,24 @@ layout_mode = 2
 theme = ExtResource("5_do1uq")
 text = "PROCEED"
 script = ExtResource("12_tw0df")
+nextScene = "res://FinalScenes/VigenereScene.tscn"
+
+[node name="ProceedButton2" type="CenterContainer" parent="."]
+custom_minimum_size = Vector2(150, 50)
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -29.0
+offset_right = 80.0
+grow_vertical = 0
+size_flags_horizontal = 3
+
+[node name="Back" type="Button" parent="ProceedButton2"]
+layout_mode = 2
+theme = ExtResource("5_do1uq")
+text = "BACK"
+script = ExtResource("12_tw0df")
+nextScene = "res://FinalScenes/CaesarScene.tscn"
 
 [connection signal="text_submitted" from="MarginContainer/CenterContainer/VBoxContainer/Plaintext" to="LockSeries" method="_on_plaintext_text_changed"]
 [connection signal="text_submitted" from="MarginContainer/CenterContainer/VBoxContainer/Plaintext" to="MarginContainer/CenterContainer/VBoxContainer/HBoxContainer2/KeyCount2" method="_on_plaintext_text_submitted"]
@@ -293,3 +311,5 @@ script = ExtResource("12_tw0df")
 [connection signal="pressed" from="ResetButton/HBoxContainer/Button" to="ResetButton/HBoxContainer/Button" method="_on_pressed"]
 [connection signal="pressed" from="Goals/Goal1/Goal" to="Goals/Goal1/Goal" method="_on_pressed"]
 [connection signal="pressed" from="Goals/Goal2/Goal" to="Goals/Goal2/Goal" method="_on_pressed"]
+[connection signal="pressed" from="ProceedButton/Proceed" to="ProceedButton/Proceed" method="_on_pressed"]
+[connection signal="pressed" from="ProceedButton2/Back" to="ProceedButton2/Back" method="_on_pressed"]

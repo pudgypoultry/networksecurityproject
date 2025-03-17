@@ -1,19 +1,26 @@
-[gd_scene load_steps=12 format=3 uid="uid://banxa2gjxs7lm"]
+[gd_scene load_steps=15 format=3 uid="uid://banxa2gjxs7lm"]
 
 [ext_resource type="Script" path="res://LockScenes/3DScenes/Scripts/FullLock.gd" id="1_pgtuy"]
 [ext_resource type="PackedScene" uid="uid://c71ucj6e05lfr" path="res://LockScenes/3DScenes/letter_wheel.tscn" id="2_kmh3r"]
 [ext_resource type="Script" path="res://LockScenes/UIScenes/Scripts/DecryptButton.gd" id="4_cr0oq"]
-[ext_resource type="Theme" uid="uid://dfym1ny6kb6pj" path="res://Button.tres" id="5_j81wg"]
+[ext_resource type="Theme" uid="uid://dfym1ny6kb6pj" path="res://Fonts/Button.tres" id="5_j81wg"]
 [ext_resource type="Script" path="res://LockScenes/UIScenes/Scripts/ResetSceneButton.gd" id="5_jjmyu"]
 [ext_resource type="Script" path="res://LockScenes/Tools/ActionStack.gd" id="6_77luq"]
 [ext_resource type="Script" path="res://LockScenes/UIScenes/Scripts/RotateButton.gd" id="6_acjyj"]
 [ext_resource type="Script" path="res://LockScenes/UIScenes/Scripts/SwapButton.gd" id="7_jqco4"]
+[ext_resource type="Script" path="res://LockScenes/UIScenes/Scripts/SceneLoadButton.gd" id="9_yn2qv"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w8ca2"]
 albedo_color = Color(0.546875, 0.546875, 0.546875, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_4dowo"]
 material = SubResource("StandardMaterial3D_w8ca2")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ov2l0"]
+albedo_color = Color(0.546875, 0.546875, 0.546875, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ektlh"]
+material = SubResource("StandardMaterial3D_ov2l0")
 
 [sub_resource type="Environment" id="Environment_6205a"]
 ambient_light_source = 2
@@ -64,6 +71,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.1901)
 
 [node name="Blinder" type="MeshInstance3D" parent="LockSeries"]
 transform = Transform3D(0.214606, 0, 0, 0, 1, 0, 0, 0, 5.60715, 2.28589, -0.76699, 0)
+visible = false
 mesh = SubResource("BoxMesh_4dowo")
 
 [node name="Blinder2" type="MeshInstance3D" parent="LockSeries"]
@@ -80,6 +88,14 @@ mesh = SubResource("BoxMesh_4dowo")
 transform = Transform3D(0.214606, 0, 0, 0, 1, 0, 0, 0, 0.37679, 2.28589, 0.0193236, 2.61154)
 visible = false
 mesh = SubResource("BoxMesh_4dowo")
+
+[node name="Blinder6" type="MeshInstance3D" parent="LockSeries"]
+transform = Transform3D(0.214606, 0, 0, 0, 0.299506, 0, 0, 0, 10.3206, 2.28589, 0.369041, 0.0198091)
+mesh = SubResource("BoxMesh_ektlh")
+
+[node name="Blinder7" type="MeshInstance3D" parent="LockSeries"]
+transform = Transform3D(0.214606, 0, 0, 0, 0.299506, 0, 0, 0, 10.3206, 2.286, -0.415, 0.02)
+mesh = SubResource("BoxMesh_ektlh")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_6205a")
@@ -102,17 +118,32 @@ size_flags_horizontal = 3
 layout_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/CenterContainer"]
+custom_minimum_size = Vector2(410, 0)
 layout_mode = 2
 
 [node name="Decrypt" type="Button" parent="MarginContainer/CenterContainer/VBoxContainer" node_paths=PackedStringArray("actionStack")]
 custom_minimum_size = Vector2(350, 50)
 layout_mode = 2
-size_flags_horizontal = 4
 size_flags_vertical = 4
 theme = ExtResource("5_j81wg")
 text = "DECRYPT"
 script = ExtResource("4_cr0oq")
 actionStack = NodePath("../../../../ActionStack")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/CenterContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(350, 0)
+layout_mode = 2
+theme = ExtResource("5_j81wg")
+text = "# of Manipulations:"
+
+[node name="StackSize" type="Label" parent="MarginContainer/CenterContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme = ExtResource("5_j81wg")
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 anchors_preset = 1
@@ -144,6 +175,23 @@ size_flags_horizontal = 3
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer2"]
 layout_mode = 2
 
+[node name="HBoxContainer3" type="HBoxContainer" parent="CenterContainer2/VBoxContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="Label" type="Label" parent="CenterContainer2/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(95, 0)
+layout_mode = 2
+theme = ExtResource("5_j81wg")
+theme_override_font_sizes/font_size = 10
+text = "Wheel #  "
+
+[node name="Label2" type="Label" parent="CenterContainer2/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+theme = ExtResource("5_j81wg")
+theme_override_font_sizes/font_size = 10
+text = "How Far  "
+
 [node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer2/VBoxContainer"]
 layout_mode = 2
 
@@ -174,6 +222,23 @@ max_value = 25.0
 rounded = true
 alignment = 1
 
+[node name="HBoxContainer4" type="HBoxContainer" parent="CenterContainer2/VBoxContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="Label" type="Label" parent="CenterContainer2/VBoxContainer/HBoxContainer4"]
+custom_minimum_size = Vector2(95, 0)
+layout_mode = 2
+theme = ExtResource("5_j81wg")
+theme_override_font_sizes/font_size = 10
+text = "Wheel #  "
+
+[node name="Label2" type="Label" parent="CenterContainer2/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+theme = ExtResource("5_j81wg")
+theme_override_font_sizes/font_size = 10
+text = "Wheel #  "
+
 [node name="HBoxContainer2" type="HBoxContainer" parent="CenterContainer2/VBoxContainer"]
 layout_mode = 2
 
@@ -202,15 +267,56 @@ max_value = 10.0
 value = 1.0
 alignment = 1
 
-[node name="ActionStack" type="Node" parent="." node_paths=PackedStringArray("locks", "timer")]
+[node name="ActionStack" type="Node" parent="." node_paths=PackedStringArray("locks", "stackTracker", "proceedButton", "timer")]
 script = ExtResource("6_77luq")
 locks = NodePath("../LockSeries")
+stackTracker = NodePath("../MarginContainer/CenterContainer/VBoxContainer/HBoxContainer/StackSize")
+proceedButton = NodePath("../ProceedButton/Proceed")
 timer = NodePath("../Timer")
 startingWord = "CRYPTOGRAPH"
 
 [node name="Timer" type="Timer" parent="."]
 
+[node name="ProceedButton2" type="CenterContainer" parent="."]
+custom_minimum_size = Vector2(150, 50)
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -29.0
+offset_right = 80.0
+grow_vertical = 0
+size_flags_horizontal = 3
+
+[node name="Back" type="Button" parent="ProceedButton2"]
+layout_mode = 2
+theme = ExtResource("5_j81wg")
+text = "BACK"
+script = ExtResource("9_yn2qv")
+nextScene = "res://FinalScenes/ConfusionDiffusionScene.tscn"
+
+[node name="ProceedButton" type="CenterContainer" parent="."]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -380.0
+offset_top = -104.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 3
+
+[node name="Proceed" type="Button" parent="ProceedButton"]
+visible = false
+layout_mode = 2
+theme = ExtResource("5_j81wg")
+text = "PROCEED"
+script = ExtResource("9_yn2qv")
+nextScene = "res://FinalScenes/VigenereScene.tscn"
+
 [connection signal="pressed" from="MarginContainer/CenterContainer/VBoxContainer/Decrypt" to="MarginContainer/CenterContainer/VBoxContainer/Decrypt" method="_on_pressed"]
 [connection signal="pressed" from="CenterContainer/HBoxContainer/Button" to="CenterContainer/HBoxContainer/Button" method="_on_pressed"]
 [connection signal="pressed" from="CenterContainer2/VBoxContainer/HBoxContainer/Rotate" to="CenterContainer2/VBoxContainer/HBoxContainer/Rotate" method="_on_pressed"]
 [connection signal="pressed" from="CenterContainer2/VBoxContainer/HBoxContainer2/Swap" to="CenterContainer2/VBoxContainer/HBoxContainer2/Swap" method="_on_pressed"]
+[connection signal="pressed" from="ProceedButton2/Back" to="ProceedButton2/Back" method="_on_pressed"]
+[connection signal="pressed" from="ProceedButton/Proceed" to="ProceedButton/Proceed" method="_on_pressed"]

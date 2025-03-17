@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cuc8hwl1jy50w"]
 
-[ext_resource type="Theme" uid="uid://dfym1ny6kb6pj" path="res://Button.tres" id="1_m0jgb"]
+[ext_resource type="Theme" uid="uid://dfym1ny6kb6pj" path="res://Fonts/Button.tres" id="1_m0jgb"]
 [ext_resource type="PackedScene" uid="uid://bwurfx0etyo2p" path="res://LockScenes/UIScenes/CaesarPresentation.tscn" id="2_h4dft"]
 
 [node name="GeneralPresentation" type="Control"]

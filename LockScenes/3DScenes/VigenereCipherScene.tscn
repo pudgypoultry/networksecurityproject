@@ -1,15 +1,16 @@
-[gd_scene load_steps=14 format=3 uid="uid://c4njibg2rrmst"]
+[gd_scene load_steps=15 format=3 uid="uid://c4njibg2rrmst"]
 
 [ext_resource type="Script" path="res://LockScenes/3DScenes/Scripts/FullLock.gd" id="1_2qgq6"]
 [ext_resource type="PackedScene" uid="uid://c71ucj6e05lfr" path="res://LockScenes/3DScenes/letter_wheel.tscn" id="2_opg44"]
 [ext_resource type="Script" path="res://LockScenes/UIScenes/Scripts/VigenereUI.gd" id="3_ergib"]
 [ext_resource type="FontFile" uid="uid://dta5ub6hkqfo8" path="res://Fonts/mmrock9/MMRock9.ttf" id="4_gbljm"]
 [ext_resource type="Script" path="res://LockScenes/UIScenes/Scripts/ResetButton.gd" id="5_i0q1l"]
-[ext_resource type="Theme" uid="uid://dfym1ny6kb6pj" path="res://Button.tres" id="6_ussc1"]
+[ext_resource type="Theme" uid="uid://dfym1ny6kb6pj" path="res://Fonts/Button.tres" id="6_ussc1"]
 [ext_resource type="Script" path="res://LockScenes/UIScenes/Scripts/ToyGoal.gd" id="7_htbg3"]
 [ext_resource type="Texture2D" uid="uid://bq1h7pduxrcs6" path="res://Images/CheckBox.png" id="8_j12n3"]
 [ext_resource type="Texture2D" uid="uid://xvmeimb8u53n" path="res://Images/CheckBoxYes.png" id="9_35e6m"]
 [ext_resource type="Script" path="res://LockScenes/UIScenes/Scripts/GoalButton.gd" id="10_813fl"]
+[ext_resource type="Script" path="res://LockScenes/UIScenes/Scripts/SceneLoadButton.gd" id="11_u316f"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w8ca2"]
 albedo_color = Color(0.546875, 0.546875, 0.546875, 1)
@@ -255,6 +256,23 @@ layout_mode = 2
 texture = ExtResource("8_j12n3")
 expand_mode = 3
 
+[node name="ProceedButton" type="CenterContainer" parent="."]
+custom_minimum_size = Vector2(150, 50)
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -29.0
+offset_right = 80.0
+grow_vertical = 0
+size_flags_horizontal = 3
+
+[node name="Proceed" type="Button" parent="ProceedButton"]
+layout_mode = 2
+theme = ExtResource("6_ussc1")
+text = "BACK"
+script = ExtResource("11_u316f")
+nextScene = "res://FinalScenes/VigenereScene.tscn"
+
 [connection signal="text_submitted" from="TypeLines/CenterContainer/VBoxContainer/KeyText" to="LockSeries" method="_on_keytext_text_submitted"]
 [connection signal="text_submitted" from="TypeLines/CenterContainer/VBoxContainer/Plaintext" to="LockSeries" method="_on_plaintext_text_changed"]
 [connection signal="text_submitted" from="TypeLines/CenterContainer/VBoxContainer/Plaintext" to="TypeLines" method="_on_plaintext_text_submitted"]
@@ -262,3 +280,4 @@ expand_mode = 3
 [connection signal="pressed" from="Buttons/HBoxContainer/Button2" to="Buttons/HBoxContainer/Button2" method="_on_pressed"]
 [connection signal="pressed" from="Goals/Goal1/Goal" to="Goals/Goal1/Goal" method="_on_pressed"]
 [connection signal="pressed" from="Goals/Goal2/Goal" to="Goals/Goal2/Goal" method="_on_pressed"]
+[connection signal="pressed" from="ProceedButton/Proceed" to="ProceedButton/Proceed" method="_on_pressed"]

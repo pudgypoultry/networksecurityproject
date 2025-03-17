@@ -1,0 +1,127 @@
+[gd_scene load_steps=4 format=3 uid="uid://dg07l2at0u4n1"]
+
+[ext_resource type="Script" path="res://LockScenes/UIScenes/Scripts/SwipingPresentation.gd" id="1_yx0wr"]
+[ext_resource type="Theme" uid="uid://dfym1ny6kb6pj" path="res://Fonts/Button.tres" id="2_0kym2"]
+[ext_resource type="Script" path="res://LockScenes/UIScenes/Scripts/SceneLoadButton.gd" id="3_3mqov"]
+
+[node name="SwipingPresentation" type="ScrollContainer" node_paths=PackedStringArray("slides")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scroll_vertical = 1776
+vertical_scroll_mode = 3
+script = ExtResource("1_yx0wr")
+slides = [NodePath("VBoxContainer/MarginContainer"), NodePath("VBoxContainer/MarginContainer2"), NodePath("VBoxContainer/MarginContainer3"), NodePath("VBoxContainer/MarginContainer4")]
+customMax = 2412
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(1000, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="First" type="Label" parent="VBoxContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+text = "Now, consider the same question that you did after playing with the Caesar cipher, \"Can you think of a method you could use to figure out a secret message that was encrypted using the Vigenere cipher?\" You'll likely find this question much harder to answer. In actual practice, breaking the vigenere cipher involves using statistics to find likely patterns in order to tease out the password. However, notice that each letter still corresponds to its own position.
+
+"
+vertical_alignment = 2
+autowrap_mode = 3
+
+[node name="Second" type="Label" parent="VBoxContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+text = "The manipulation done to each character in-place (without modifying its position in the word) is defined as
+\"Confusion\""
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(1000, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer2"]
+layout_mode = 2
+
+[node name="First2" type="Label" parent="VBoxContainer/MarginContainer2/VBoxContainer"]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+text = "Any singular manipulation of the plaintext that affects more than one character at a time, (as an example, swapping any two characters), applies an effect called \"Diffusion\"."
+horizontal_alignment = 1
+vertical_alignment = 2
+autowrap_mode = 3
+
+[node name="First" type="Label" parent="VBoxContainer/MarginContainer2/VBoxContainer"]
+custom_minimum_size = Vector2(0, 400)
+layout_mode = 2
+text = "The Vigenere cipher applies more \"Confusion\" to the plaintext than the Caesar cipher. This is why we find it harder to break Vigenere than Caesar. However, neither cipher employs \"Diffusion\"; think about how all of the lock wheels stay in place, and the rotation of one wheel does not affect the rotation of any other wheel.
+
+
+
+
+"
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="MarginContainer3" type="MarginContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(1000, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="First" type="Label" parent="VBoxContainer/MarginContainer3"]
+custom_minimum_size = Vector2(0, 600)
+layout_mode = 2
+text = "Only employing confusion means that the ciphertext is still breakable with enough statistical analysis. As a real-world example, \"The Enigma Machine\" was an encryption computer used by Germany during WW2. While some messages encrypted using Enigma were cracked with great effort by Polish mathematicians Henryk Zygalski, Jerzy Różycki and Marian Rejewski, Alan Turing was able to use their work to create procedures and computers that were capable of breaking these messages almost as quickly as they were intercepted.
+
+Effectively, Enigma was a super-complex Vigenere cipher. Instead of one password that was used in a loop, there were multiple interconnected wheels that would spin after each and every character was entered. The first wheel would spin a defined amount, which would then sometimes cause the second wheel to spin, then the third, and later in the war a fourth. The resulting letter would depend on the final state of the rotation of these wheels, and the starting state of the wheels would be changed every day. The amount of confusion added to the ciphertext was especially astounding for the time, but there was no application of diffusion to the plaintext; every letter stayed in place. This allowed Alan Turing and those working with him to analyze patterns created by the rotation of these wheels, ultimately leading to methods of reliably decrypting Enigma."
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="MarginContainer4" type="MarginContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(1000, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer4"]
+layout_mode = 2
+
+[node name="First" type="Label" parent="VBoxContainer/MarginContainer4/VBoxContainer"]
+custom_minimum_size = Vector2(0, 400)
+layout_mode = 2
+text = "As long as the means of encrypting plaintext is done algorithmically (or rather, in ordered, specific steps), there will always exist a way of performing those steps backwards.
+
+In the following interactive portion, you'll be given the ability to rotate a singular wheel, or to swap two wheels at a time. Do so as many times as you'd like, then press the \"DECRYPT\" button. You'll see that no matter what changes you apply to the combination lock, there will always exist the means of returning the text back to where it started.
+
+Experiment by performing at least 10 changes to the lock using the buttons in the top left corner. Once you have done so and pressed \"DECRYPT\", the button for the next portion will appear!"
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/MarginContainer4/VBoxContainer"]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Button" type="Button" parent="VBoxContainer/MarginContainer4/VBoxContainer/MarginContainer"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme = ExtResource("2_0kym2")
+text = "PROCEED"
+script = ExtResource("3_3mqov")
+nextScene = "res://LockScenes/3DScenes/ConfusionDefusionToy.tscn"
+
+[connection signal="pressed" from="VBoxContainer/MarginContainer4/VBoxContainer/MarginContainer/Button" to="VBoxContainer/MarginContainer4/VBoxContainer/MarginContainer/Button" method="_on_pressed"]

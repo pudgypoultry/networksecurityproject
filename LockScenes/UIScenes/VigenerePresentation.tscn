@@ -1,9 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dr8b1thjbndur"]
+[gd_scene load_steps=4 format=3 uid="uid://dr8b1thjbndur"]
 
 [ext_resource type="Script" path="res://LockScenes/UIScenes/Scripts/SwipingPresentation.gd" id="1_quq17"]
-[ext_resource type="Theme" uid="uid://dfym1ny6kb6pj" path="res://Button.tres" id="3_sxxsf"]
+[ext_resource type="Theme" uid="uid://dfym1ny6kb6pj" path="res://Fonts/Button.tres" id="3_sxxsf"]
 [ext_resource type="Script" path="res://LockScenes/UIScenes/Scripts/SceneLoadButton.gd" id="4_153ra"]
-[ext_resource type="PackedScene" uid="uid://c4njibg2rrmst" path="res://LockScenes/3DScenes/VigenereCipherScene.tscn" id="4_uqwjh"]
 
 [node name="SwipingPresentation" type="ScrollContainer" node_paths=PackedStringArray("slides")]
 anchors_preset = 15
@@ -31,7 +30,7 @@ size_flags_vertical = 4
 [node name="First" type="Label" parent="VBoxContainer/MarginContainer"]
 custom_minimum_size = Vector2(0, 600)
 layout_mode = 2
-text = "Now that you understand the Caesar cipher, think about this question: \"Can you think of a method you could use to figure outa secret message that was encrypted using the Caesar cipher?\"
+text = "Now that you understand the Caesar cipher, think about this question: \"Can you think of a method you could use to figure out a secret message that was encrypted using the Caesar cipher?\"
 
 No matter what the original plaintext was, if you know that the ciphertext was created using the Caesar cipher method, then if you simply pressed the \"Increase Key\" button 26 times, you would be guaranteed to have seen the secret message once.
 "
@@ -138,6 +137,6 @@ size_flags_vertical = 0
 theme = ExtResource("3_sxxsf")
 text = "PROCEED"
 script = ExtResource("4_153ra")
-nextScene = ExtResource("4_uqwjh")
+nextScene = "res://LockScenes/3DScenes/VigenereCipherScene.tscn"
 
 [connection signal="pressed" from="VBoxContainer/MarginContainer4/VBoxContainer/MarginContainer/Button" to="VBoxContainer/MarginContainer4/VBoxContainer/MarginContainer/Button" method="_on_pressed"]
