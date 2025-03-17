@@ -371,7 +371,7 @@ layout_mode = 2
 theme = ExtResource("3_egkpg")
 text = "PROCEED"
 script = ExtResource("8_mym7q")
-nextScene = "res://FinalScenes/VigenereScene.tscn"
+nextScene = "res://FinalScenes/RSAScene.tscn"
 
 [node name="ProceedButton2" type="CenterContainer" parent="."]
 custom_minimum_size = Vector2(150, 50)

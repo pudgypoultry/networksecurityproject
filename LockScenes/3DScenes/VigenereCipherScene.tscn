@@ -170,7 +170,7 @@ offset_right = 300.0
 grow_vertical = 2
 size_flags_horizontal = 3
 
-[node name="Goal1" type="HBoxContainer" parent="Goals" node_paths=PackedStringArray("typeLines", "currentTexture")]
+[node name="Goal1" type="HBoxContainer" parent="Goals" node_paths=PackedStringArray("typeLines", "currentTexture", "proceedButton")]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 alignment = 2
@@ -181,6 +181,7 @@ neededKey = "CQWMPJAKSGX"
 currentTexture = NodePath("TextureRect")
 imageNo = ExtResource("8_j12n3")
 imageYes = ExtResource("9_35e6m")
+proceedButton = NodePath("../../ProceedButton2/Proceed")
 
 [node name="Dash" type="Label" parent="Goals/Goal1"]
 custom_minimum_size = Vector2(20, 50)
@@ -213,7 +214,7 @@ layout_mode = 2
 texture = ExtResource("8_j12n3")
 expand_mode = 3
 
-[node name="Goal2" type="HBoxContainer" parent="Goals" node_paths=PackedStringArray("typeLines", "currentTexture")]
+[node name="Goal2" type="HBoxContainer" parent="Goals" node_paths=PackedStringArray("typeLines", "currentTexture", "proceedButton")]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 alignment = 2
@@ -224,6 +225,7 @@ neededKey = "ABCDEFGHI"
 currentTexture = NodePath("TextureRect")
 imageNo = ExtResource("8_j12n3")
 imageYes = ExtResource("9_35e6m")
+proceedButton = NodePath("../../ProceedButton2/Proceed")
 
 [node name="Dash" type="Label" parent="Goals/Goal2"]
 custom_minimum_size = Vector2(20, 50)
@@ -266,12 +268,32 @@ offset_right = 80.0
 grow_vertical = 0
 size_flags_horizontal = 3
 
-[node name="Proceed" type="Button" parent="ProceedButton"]
+[node name="Back" type="Button" parent="ProceedButton"]
 layout_mode = 2
 theme = ExtResource("6_ussc1")
 text = "BACK"
 script = ExtResource("11_u316f")
 nextScene = "res://FinalScenes/VigenereScene.tscn"
+
+[node name="ProceedButton2" type="CenterContainer" parent="."]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -380.0
+offset_top = -104.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 3
+
+[node name="Proceed" type="Button" parent="ProceedButton2"]
+visible = false
+layout_mode = 2
+theme = ExtResource("6_ussc1")
+text = "PROCEED"
+script = ExtResource("11_u316f")
+nextScene = "res://FinalScenes/ConfusionDiffusionScene.tscn"
 
 [connection signal="text_submitted" from="TypeLines/CenterContainer/VBoxContainer/KeyText" to="LockSeries" method="_on_keytext_text_submitted"]
 [connection signal="text_submitted" from="TypeLines/CenterContainer/VBoxContainer/Plaintext" to="LockSeries" method="_on_plaintext_text_changed"]
@@ -280,4 +302,5 @@ nextScene = "res://FinalScenes/VigenereScene.tscn"
 [connection signal="pressed" from="Buttons/HBoxContainer/Button2" to="Buttons/HBoxContainer/Button2" method="_on_pressed"]
 [connection signal="pressed" from="Goals/Goal1/Goal" to="Goals/Goal1/Goal" method="_on_pressed"]
 [connection signal="pressed" from="Goals/Goal2/Goal" to="Goals/Goal2/Goal" method="_on_pressed"]
-[connection signal="pressed" from="ProceedButton/Proceed" to="ProceedButton/Proceed" method="_on_pressed"]
+[connection signal="pressed" from="ProceedButton/Back" to="ProceedButton/Back" method="_on_pressed"]
+[connection signal="pressed" from="ProceedButton2/Proceed" to="ProceedButton2/Proceed" method="_on_pressed"]

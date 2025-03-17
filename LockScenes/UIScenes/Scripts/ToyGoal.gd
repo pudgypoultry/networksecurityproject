@@ -12,6 +12,7 @@ var hasBeenDone : bool = false
 enum StartingPoint {PLAINTEXT, KEY}
 
 @export var whichFirst : StartingPoint
+@export var proceedButton : Button
 
 func _process(delta):
 	WaitForAnswer()
@@ -26,3 +27,4 @@ func WaitForAnswer():
 
 func FlipTexture():
 	currentTexture.texture = imageYes
+	proceedButton.visible = true

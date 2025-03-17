@@ -10,11 +10,11 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-scroll_vertical = 1165
+scroll_vertical = 100
 vertical_scroll_mode = 3
 script = ExtResource("1_xjewd")
-slides = [NodePath("VBoxContainer/MarginContainer"), NodePath("VBoxContainer/MarginContainer2"), NodePath("VBoxContainer/MarginContainer3"), NodePath("VBoxContainer/MarginContainer4")]
-customMax = 2412
+slides = [NodePath("VBoxContainer/MarginContainer"), NodePath("VBoxContainer/MarginContainer2"), NodePath("VBoxContainer/MarginContainer3"), NodePath("VBoxContainer/MarginContainer5"), NodePath("VBoxContainer/MarginContainer4")]
+customMax = 3015
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 2
@@ -112,11 +112,7 @@ layout_mode = 2
 [node name="First" type="Label" parent="VBoxContainer/MarginContainer4/VBoxContainer"]
 custom_minimum_size = Vector2(0, 400)
 layout_mode = 2
-text = "As long as the means of encrypting plaintext is done algorithmically (or rather, in ordered, specific steps), there will always exist a way of performing those steps backwards.
-
-In the following interactive portion, you'll be given the ability to rotate a singular wheel, or to swap two wheels at a time. Do so as many times as you'd like, then press the \"DECRYPT\" button. You'll see that no matter what changes you apply to the combination lock, there will always exist the means of returning the text back to where it started.
-
-Experiment by performing at least 10 changes to the lock using the buttons in the top left corner. Once you have done so and pressed \"DECRYPT\", the button for the next portion will appear!"
+text = "Congratulations! You've reached the end of the  interactive tools we can provide to understand these concepts. When you click proceed, it will lead you to another page where you'll learn about how this integrates into your own experience with the internet. These encryption methods are used every day online to keep data secure, anonymous, and to make sure all of that data gets exactly where it needs to go."
 vertical_alignment = 1
 autowrap_mode = 3
 
@@ -133,6 +129,6 @@ size_flags_vertical = 0
 theme = ExtResource("2_suc0e")
 text = "PROCEED"
 script = ExtResource("3_sci3j")
-nextScene = "res://LockScenes/3DScenes/ConfusionDefusionToy.tscn"
+nextScene = "res://FinalScenes/PracticalScene.tscn"
 
 [connection signal="pressed" from="VBoxContainer/MarginContainer4/VBoxContainer/MarginContainer/Button" to="VBoxContainer/MarginContainer4/VBoxContainer/MarginContainer/Button" method="_on_pressed"]

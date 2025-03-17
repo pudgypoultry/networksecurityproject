@@ -1,0 +1,150 @@
+[gd_scene load_steps=6 format=3 uid="uid://crhuh3ift5mmu"]
+
+[ext_resource type="Script" path="res://LockScenes/UIScenes/Scripts/SwipingPresentation.gd" id="1_6hwmc"]
+[ext_resource type="Texture2D" uid="uid://0a6g23yb5u1m" path="res://Images/SecureConnection1.png" id="2_gpjgy"]
+[ext_resource type="Theme" uid="uid://dfym1ny6kb6pj" path="res://Fonts/Button.tres" id="2_ivbom"]
+[ext_resource type="Texture2D" uid="uid://cs1uexj5m20ry" path="res://Images/UnsecureConnection.png" id="3_ysni8"]
+[ext_resource type="Script" path="res://LockScenes/UIScenes/Scripts/SceneLoadButton.gd" id="5_8iutc"]
+
+[node name="SwipingPresentation" type="ScrollContainer" node_paths=PackedStringArray("slides")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scroll_vertical = 100
+vertical_scroll_mode = 3
+script = ExtResource("1_6hwmc")
+slides = [NodePath("VBoxContainer/MarginContainer"), NodePath("VBoxContainer/MarginContainer2"), NodePath("VBoxContainer/MarginContainer3"), NodePath("VBoxContainer/MarginContainer4")]
+customMax = 2412
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(1000, 600)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="First" type="Label" parent="VBoxContainer/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(500, 600)
+layout_mode = 2
+text = "Knowing these encryption methods is only one half of the job, the other half is knowing how they apply and what to do with that understanding.
+
+Most websites on the internet want you to use an encrypted connection for everything, but not all of them. You can check that website you are currently using has an encrypted connection by seeing if there is a lock icon next to the URL in the bar at the top. If there is a lock icon there, that means you are using an encrypted connection. Sometimes, websites will show a different icon that when you hover over it, the browser says “View site information”. If you click on this, you should see information about the encryption status of your site. Google Chrome for example will say “Connection is secure” in the menu that appears if you click on the icon. Sometimes, instead of a lock icon, your browser will display the phrase “Not Secure” in big red letters in your address bar. That means you are currently on an unencrypted connection, or the webpage has not registered itself with any authority that we use to cryptographically prove a website’s identity. This is a time you should turn back, and not access that website in the future."
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+texture = ExtResource("2_gpjgy")
+
+[node name="Label" type="Label" parent="VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "When you click on the options to the left of the url
+of the website you're on, you'll often see a lock next
+to \"Connection is secure\", this means that the 
+webpage you're on uses encryption to keep your
+browsing information safe!"
+horizontal_alignment = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(1000, 600)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer2"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/MarginContainer2/VBoxContainer"]
+custom_minimum_size = Vector2(700, 400)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+texture = ExtResource("3_ysni8")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="VBoxContainer/MarginContainer2/VBoxContainer"]
+custom_minimum_size = Vector2(700, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "If you see a page that looks like this while using your browser, that means that the page does not have a secure connection, that it does not use sufficient encryption to esure the safety and integrity of your data!"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="MarginContainer3" type="MarginContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(1000, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="First" type="Label" parent="VBoxContainer/MarginContainer3"]
+custom_minimum_size = Vector2(0, 600)
+layout_mode = 2
+text = "Going to your browser's security settings (Generally found in Settings -> Privacy and Security -> Security) and making sure that both the “Always use secure connections” and “Use secure DNS” options are on. This ensures that your web browser always uses secure connections for regular web pages, and DNS requests (which is beyond the scope of this course, but important). 
+
+It's also suggested that you have the “Warns you for insecure public & private sites” option clicked, as that is the safest one. Doing this will make sure that anything your web browser sends out onto the internet is encrypted. It's easier than one would think to wander into areas of the internet that are looking to grab every tiny bit of your unencrypted data they can get their hands on, but being aware of how these tools work and how to keep your data secure is the best way to stay safe online!
+"
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="MarginContainer4" type="MarginContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(1000, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer4"]
+layout_mode = 2
+
+[node name="First" type="Label" parent="VBoxContainer/MarginContainer4/VBoxContainer"]
+custom_minimum_size = Vector2(0, 400)
+layout_mode = 2
+text = "We hope that you enjoyed this course on encryption and internet security. Remembering how to protect yourself on the internet is important. Bad actors are constantly finding new ways of getting a hold of our data, so it's never been more important that we all do our best to keep each other's vital and sensitive information secure!
+
+If you are interested in these topics and would like to know more, there are many (secure!) places online where you can do so freely and easily:
+
+-Brilliant.org has fantastic courses and even inspired this one!
+
+-Geeksforgeeks.org is chock full of helpful tutorials and explanations on topics about computers, programming, and networking!
+
+-ChatGPT is a solid resource for beginner information, but always be sure to double check anything it tells you if it doesn't make immediate sense!
+
+-YouTube has a surplus of great tutorials, explanations, and demonstrations of every concievable topic related to computing!"
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/MarginContainer4/VBoxContainer"]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+size_flags_vertical = 6
+
+[node name="Button" type="Button" parent="VBoxContainer/MarginContainer4/VBoxContainer/MarginContainer"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("2_ivbom")
+text = "BACK TO
+MAIN"
+script = ExtResource("5_8iutc")
+nextScene = "res://LockScenes/3DScenes/CaesarCipherScene.tscn"
+
+[connection signal="pressed" from="VBoxContainer/MarginContainer4/VBoxContainer/MarginContainer/Button" to="VBoxContainer/MarginContainer4/VBoxContainer/MarginContainer/Button" method="_on_pressed"]

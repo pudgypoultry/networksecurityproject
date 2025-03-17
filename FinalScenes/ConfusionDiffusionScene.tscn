@@ -13,7 +13,6 @@ grow_vertical = 2
 
 [node name="SwipingPresentation" parent="." instance=ExtResource("1_a2c4j")]
 layout_mode = 1
-scroll_vertical = 100
 
 [node name="Buttons" type="CenterContainer" parent="."]
 custom_minimum_size = Vector2(200, 100)
