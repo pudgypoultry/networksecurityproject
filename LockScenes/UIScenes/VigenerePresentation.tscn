@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://dr8b1thjbndur"]
 
-[ext_resource type="Script" path="res://LockScenes/UIScenes/SwipingPresentation.gd" id="1_quq17"]
+[ext_resource type="Script" path="res://LockScenes/UIScenes/Scripts/SwipingPresentation.gd" id="1_quq17"]
 [ext_resource type="Theme" uid="uid://dfym1ny6kb6pj" path="res://Button.tres" id="3_sxxsf"]
-[ext_resource type="Script" path="res://LockScenes/UIScenes/SceneLoadButton.gd" id="4_153ra"]
-[ext_resource type="PackedScene" uid="uid://c4njibg2rrmst" path="res://LockScenes/VigenereCipherScene.tscn" id="4_uqwjh"]
+[ext_resource type="Script" path="res://LockScenes/UIScenes/Scripts/SceneLoadButton.gd" id="4_153ra"]
+[ext_resource type="PackedScene" uid="uid://c4njibg2rrmst" path="res://LockScenes/3DScenes/VigenereCipherScene.tscn" id="4_uqwjh"]
 
 [node name="SwipingPresentation" type="ScrollContainer" node_paths=PackedStringArray("slides")]
 anchors_preset = 15
@@ -11,7 +11,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-scroll_vertical = 2372
+scroll_vertical = 100
 vertical_scroll_mode = 3
 script = ExtResource("1_quq17")
 slides = [NodePath("VBoxContainer/MarginContainer"), NodePath("VBoxContainer/MarginContainer2"), NodePath("VBoxContainer/MarginContainer5"), NodePath("VBoxContainer/MarginContainer3"), NodePath("VBoxContainer/MarginContainer4")]

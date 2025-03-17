@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://c71ucj6e05lfr"]
 
-[ext_resource type="Script" path="res://LockScenes/LetterWheel.gd" id="1_trqes"]
-[ext_resource type="PackedScene" uid="uid://c23f3tpg8qar7" path="res://LockScenes/ClickerWheel.glb" id="2_wv6ci"]
+[ext_resource type="Script" path="res://LockScenes/3DScenes/Scripts/LetterWheel.gd" id="1_trqes"]
+[ext_resource type="PackedScene" uid="uid://c23f3tpg8qar7" path="res://LockScenes/3DScenes/ClickerWheel.glb" id="2_wv6ci"]
 
 [node name="LetterWheel" type="Node3D"]
 script = ExtResource("1_trqes")

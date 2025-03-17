@@ -1,15 +1,15 @@
 [gd_scene load_steps=14 format=3 uid="uid://c4njibg2rrmst"]
 
-[ext_resource type="Script" path="res://LockScenes/FullLock.gd" id="1_2qgq6"]
-[ext_resource type="PackedScene" uid="uid://c71ucj6e05lfr" path="res://LockScenes/letter_wheel.tscn" id="2_opg44"]
-[ext_resource type="Script" path="res://LockScenes/UIScenes/VigenereUI.gd" id="3_ergib"]
+[ext_resource type="Script" path="res://LockScenes/3DScenes/Scripts/FullLock.gd" id="1_2qgq6"]
+[ext_resource type="PackedScene" uid="uid://c71ucj6e05lfr" path="res://LockScenes/3DScenes/letter_wheel.tscn" id="2_opg44"]
+[ext_resource type="Script" path="res://LockScenes/UIScenes/Scripts/VigenereUI.gd" id="3_ergib"]
 [ext_resource type="FontFile" uid="uid://dta5ub6hkqfo8" path="res://Fonts/mmrock9/MMRock9.ttf" id="4_gbljm"]
-[ext_resource type="Script" path="res://LockScenes/UIScenes/ResetButton.gd" id="5_i0q1l"]
+[ext_resource type="Script" path="res://LockScenes/UIScenes/Scripts/ResetButton.gd" id="5_i0q1l"]
 [ext_resource type="Theme" uid="uid://dfym1ny6kb6pj" path="res://Button.tres" id="6_ussc1"]
-[ext_resource type="Script" path="res://LockScenes/UIScenes/ToyGoal.gd" id="7_htbg3"]
+[ext_resource type="Script" path="res://LockScenes/UIScenes/Scripts/ToyGoal.gd" id="7_htbg3"]
 [ext_resource type="Texture2D" uid="uid://bq1h7pduxrcs6" path="res://Images/CheckBox.png" id="8_j12n3"]
 [ext_resource type="Texture2D" uid="uid://xvmeimb8u53n" path="res://Images/CheckBoxYes.png" id="9_35e6m"]
-[ext_resource type="Script" path="res://LockScenes/UIScenes/GoalButton.gd" id="10_813fl"]
+[ext_resource type="Script" path="res://LockScenes/UIScenes/Scripts/GoalButton.gd" id="10_813fl"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w8ca2"]
 albedo_color = Color(0.546875, 0.546875, 0.546875, 1)
@@ -25,6 +25,7 @@ ambient_light_color = Color(0.871094, 0.871094, 0.871094, 1)
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3.74512, -0.0476167, 0)
+current = true
 
 [node name="LockSeries" type="Node3D" parent="." node_paths=PackedStringArray("lockArray")]
 script = ExtResource("1_2qgq6")
@@ -110,6 +111,8 @@ size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("4_gbljm")
 placeholder_text = "Type a Key"
 alignment = 1
+caret_blink = true
+caret_blink_interval = 0.5
 
 [node name="Plaintext" type="LineEdit" parent="TypeLines/CenterContainer/VBoxContainer"]
 custom_minimum_size = Vector2(350, 50)
@@ -119,6 +122,8 @@ theme_override_fonts/font = ExtResource("4_gbljm")
 text = "Hello World"
 placeholder_text = "Enter Plaintext Here"
 alignment = 1
+caret_blink = true
+caret_blink_interval = 0.5
 
 [node name="Buttons" type="CenterContainer" parent="."]
 anchors_preset = 1

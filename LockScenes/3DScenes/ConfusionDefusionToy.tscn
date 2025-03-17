@@ -1,13 +1,13 @@
 [gd_scene load_steps=12 format=3 uid="uid://banxa2gjxs7lm"]
 
-[ext_resource type="Script" path="res://LockScenes/FullLock.gd" id="1_pgtuy"]
-[ext_resource type="PackedScene" uid="uid://c71ucj6e05lfr" path="res://LockScenes/letter_wheel.tscn" id="2_kmh3r"]
-[ext_resource type="Script" path="res://LockScenes/UIScenes/DecryptButton.gd" id="4_kevne"]
-[ext_resource type="Script" path="res://LockScenes/UIScenes/ResetSceneButton.gd" id="4_ycd6k"]
+[ext_resource type="Script" path="res://LockScenes/3DScenes/Scripts/FullLock.gd" id="1_pgtuy"]
+[ext_resource type="PackedScene" uid="uid://c71ucj6e05lfr" path="res://LockScenes/3DScenes/letter_wheel.tscn" id="2_kmh3r"]
+[ext_resource type="Script" path="res://LockScenes/UIScenes/Scripts/DecryptButton.gd" id="4_cr0oq"]
 [ext_resource type="Theme" uid="uid://dfym1ny6kb6pj" path="res://Button.tres" id="5_j81wg"]
-[ext_resource type="Script" path="res://Scripts/ActionStack.gd" id="6_77luq"]
-[ext_resource type="Script" path="res://LockScenes/UIScenes/RotateButton.gd" id="7_str1e"]
-[ext_resource type="Script" path="res://LockScenes/UIScenes/SwapButton.gd" id="8_wwbh0"]
+[ext_resource type="Script" path="res://LockScenes/UIScenes/Scripts/ResetSceneButton.gd" id="5_jjmyu"]
+[ext_resource type="Script" path="res://LockScenes/Tools/ActionStack.gd" id="6_77luq"]
+[ext_resource type="Script" path="res://LockScenes/UIScenes/Scripts/RotateButton.gd" id="6_acjyj"]
+[ext_resource type="Script" path="res://LockScenes/UIScenes/Scripts/SwapButton.gd" id="7_jqco4"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w8ca2"]
 albedo_color = Color(0.546875, 0.546875, 0.546875, 1)
@@ -23,6 +23,7 @@ ambient_light_color = Color(0.871094, 0.871094, 0.871094, 1)
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3.74512, -0.0476167, 0)
+current = true
 
 [node name="LockSeries" type="Node3D" parent="." node_paths=PackedStringArray("lockArray")]
 script = ExtResource("1_pgtuy")
@@ -110,7 +111,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme = ExtResource("5_j81wg")
 text = "DECRYPT"
-script = ExtResource("4_kevne")
+script = ExtResource("4_cr0oq")
 actionStack = NodePath("../../../../ActionStack")
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
@@ -132,7 +133,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme = ExtResource("5_j81wg")
 text = "RESET"
-script = ExtResource("4_ycd6k")
+script = ExtResource("5_jjmyu")
 
 [node name="CenterContainer2" type="CenterContainer" parent="."]
 custom_minimum_size = Vector2(400, 0)
@@ -154,7 +155,7 @@ size_flags_vertical = 4
 theme = ExtResource("5_j81wg")
 text = "ROTATE
 "
-script = ExtResource("7_str1e")
+script = ExtResource("6_acjyj")
 actionStack = NodePath("../../../../ActionStack")
 wheelBox = NodePath("../WhichWheel")
 numBox = NodePath("../HowFar")
@@ -183,7 +184,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme = ExtResource("5_j81wg")
 text = "SWAP"
-script = ExtResource("8_wwbh0")
+script = ExtResource("7_jqco4")
 actionStack = NodePath("../../../../ActionStack")
 wheel1Box = NodePath("../FirstWheel")
 wheel2Box = NodePath("../SecondWheel")

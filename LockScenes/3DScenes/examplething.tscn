@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://ddcqdwcktcppr"]
 
-[ext_resource type="Script" path="res://LockScenes/FullLock.gd" id="1_jr8lt"]
-[ext_resource type="PackedScene" uid="uid://c71ucj6e05lfr" path="res://LockScenes/letter_wheel.tscn" id="2_eo2lf"]
-[ext_resource type="Script" path="res://LockScenes/UIScenes/VigenereUI.gd" id="3_v7bad"]
+[ext_resource type="Script" path="res://LockScenes/3DScenes/Scripts/FullLock.gd" id="1_jr8lt"]
+[ext_resource type="PackedScene" uid="uid://c71ucj6e05lfr" path="res://LockScenes/3DScenes/letter_wheel.tscn" id="2_eo2lf"]
+[ext_resource type="Script" path="res://LockScenes/UIScenes/Scripts/VigenereUI.gd" id="3_v7bad"]
 [ext_resource type="FontFile" uid="uid://dta5ub6hkqfo8" path="res://Fonts/mmrock9/MMRock9.ttf" id="4_8rg1a"]
 
 [sub_resource type="Environment" id="Environment_6205a"]

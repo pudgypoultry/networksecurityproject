@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://c23f3tpg8qar7"
-path="res://.godot/imported/ClickerWheel.glb-7e75c5f8cc4d5e8bcb95a437ec930d03.scn"
+path="res://.godot/imported/ClickerWheel.glb-1992bddd9836cdf4ea00a7d532744621.scn"
 
 [deps]
 
-source_file="res://LockScenes/ClickerWheel.glb"
-dest_files=["res://.godot/imported/ClickerWheel.glb-7e75c5f8cc4d5e8bcb95a437ec930d03.scn"]
+source_file="res://LockScenes/3DScenes/ClickerWheel.glb"
+dest_files=["res://.godot/imported/ClickerWheel.glb-1992bddd9836cdf4ea00a7d532744621.scn"]
 
 [params]
 

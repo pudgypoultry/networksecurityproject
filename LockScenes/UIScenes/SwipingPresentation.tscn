@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://betkm0q4kb2hq"]
 
-[ext_resource type="Script" path="res://LockScenes/UIScenes/SwipingPresentation.gd" id="1_806we"]
+[ext_resource type="Script" path="res://LockScenes/UIScenes/Scripts/SwipingPresentation.gd" id="1_806we"]
 
 [node name="SwipingPresentation" type="ScrollContainer" node_paths=PackedStringArray("slides")]
 anchors_preset = 15
