@@ -7,6 +7,7 @@ extends HBoxContainer
 @export var currentTexture : TextureRect
 @export var imageNo : Texture2D
 @export var imageYes : Texture2D
+@export var proceedButton : Button
 
 var hasBeenDone : bool = false
 
@@ -27,3 +28,4 @@ func WaitForAnswer():
 
 func FlipTexture():
 	currentTexture.texture = imageYes
+	proceedButton.visible = true

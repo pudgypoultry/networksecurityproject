@@ -1,5 +1,7 @@
 extends ScrollContainer
 
+class_name SwipingPresentation
+
 @export var slides : Array[MarginContainer]
 @export var swipeTime : float = 1.5
 @export var slideDistance : float = 600

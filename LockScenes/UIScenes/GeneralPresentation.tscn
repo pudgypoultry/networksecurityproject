@@ -1,0 +1,52 @@
+[gd_scene load_steps=3 format=3 uid="uid://cuc8hwl1jy50w"]
+
+[ext_resource type="Theme" uid="uid://dfym1ny6kb6pj" path="res://Button.tres" id="1_m0jgb"]
+[ext_resource type="PackedScene" uid="uid://bwurfx0etyo2p" path="res://LockScenes/UIScenes/CaesarPresentation.tscn" id="2_h4dft"]
+
+[node name="GeneralPresentation" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SwipingPresentation" parent="." instance=ExtResource("2_h4dft")]
+layout_mode = 1
+
+[node name="Buttons" type="CenterContainer" parent="."]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -200.0
+offset_top = -100.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="VBoxContainer" parent="Buttons"]
+layout_mode = 2
+alignment = 1
+
+[node name="Back" type="Button" parent="Buttons/HBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("1_m0jgb")
+text = "LAST"
+
+[node name="Continue" type="Button" parent="Buttons/HBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("1_m0jgb")
+text = "NEXT"
+
+[connection signal="pressed" from="Buttons/HBoxContainer/Back" to="SwipingPresentation" method="SlideUp"]
+[connection signal="pressed" from="Buttons/HBoxContainer/Continue" to="SwipingPresentation" method="SlideDown"]

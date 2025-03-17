@@ -1,0 +1,143 @@
+[gd_scene load_steps=5 format=3 uid="uid://dr8b1thjbndur"]
+
+[ext_resource type="Script" path="res://LockScenes/UIScenes/SwipingPresentation.gd" id="1_quq17"]
+[ext_resource type="Theme" uid="uid://dfym1ny6kb6pj" path="res://Button.tres" id="3_sxxsf"]
+[ext_resource type="Script" path="res://LockScenes/UIScenes/SceneLoadButton.gd" id="4_153ra"]
+[ext_resource type="PackedScene" uid="uid://c4njibg2rrmst" path="res://LockScenes/VigenereCipherScene.tscn" id="4_uqwjh"]
+
+[node name="SwipingPresentation" type="ScrollContainer" node_paths=PackedStringArray("slides")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scroll_vertical = 2372
+vertical_scroll_mode = 3
+script = ExtResource("1_quq17")
+slides = [NodePath("VBoxContainer/MarginContainer"), NodePath("VBoxContainer/MarginContainer2"), NodePath("VBoxContainer/MarginContainer5"), NodePath("VBoxContainer/MarginContainer3"), NodePath("VBoxContainer/MarginContainer4")]
+customMax = 3015
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(1000, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="First" type="Label" parent="VBoxContainer/MarginContainer"]
+custom_minimum_size = Vector2(0, 600)
+layout_mode = 2
+text = "Now that you understand the Caesar cipher, think about this question: \"Can you think of a method you could use to figure outa secret message that was encrypted using the Caesar cipher?\"
+
+No matter what the original plaintext was, if you know that the ciphertext was created using the Caesar cipher method, then if you simply pressed the \"Increase Key\" button 26 times, you would be guaranteed to have seen the secret message once.
+"
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(1000, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer2"]
+layout_mode = 2
+
+[node name="First" type="Label" parent="VBoxContainer/MarginContainer2/VBoxContainer"]
+custom_minimum_size = Vector2(0, 600)
+layout_mode = 2
+text = "Our next encryption method we'll discuss is called the \"Vigenere Cipher\", named after Blaise de Vigenère who implemented it about 450 years ago. Another man named Giovan Battista Bellaso had created a similar method 30 years before that, but his implementation unfortunately didn't become popular at the time. The Vigenere cipher uses a password (a series of numbers) in order to perform the function of the Caesar cipher on each individual letter, one at a time."
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="MarginContainer5" type="MarginContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(1000, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer5"]
+layout_mode = 2
+
+[node name="First" type="Label" parent="VBoxContainer/MarginContainer5/VBoxContainer"]
+custom_minimum_size = Vector2(0, 600)
+layout_mode = 2
+text = "This means that if the first number in your password is 5, the first letter of your message will be moved 5 letters forward. If the second number in the password is 13, then the second letter of your message will be moved 13 letters forward. You'll have a chance to play with this concept in the next interactive lock portion. This type of password can also be called a \"one time pad\", since it is meant to be used for a single case and not reused after decryption.
+
+It's important to note two things. First, instead of a-hard-to-remember password made up from a series of numbers, we can use an actual word and take the distances from A for each letter in that word. For example: CAT -> [C = 2, A = 0, T = 19]. So the password would be \"2, 0, 19\". Second, if the password is shorter than the plaintext then we simply go back to the beginning of the password when we reach the end of it. If we encounter a space in either the plaintext or ciphertext, we skip it."
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="MarginContainer3" type="MarginContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(1000, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer3"]
+custom_minimum_size = Vector2(0, 600)
+layout_mode = 2
+
+[node name="First" type="Label" parent="VBoxContainer/MarginContainer3/VBoxContainer"]
+custom_minimum_size = Vector2(0, 600)
+layout_mode = 2
+text = "As an example, let's choose a plaintext of \"AAABBBCCC\" and a key of \"ACE\"
+
+First, we retrieve the sequence of numbers from the key 
+(Remember that we're looking for how many letters we are away from \"A\")
+
+ACE translates as A = 0, C = 2, E = 4 which becomes the sequence: [0, 2, 4]
+
+A moved forward by 0 steps = A
+A moved forward by 2 steps = C
+A moved forward by 4 steps = E
+B moved forward by 0 steps = B
+B moved forward by 2 steps = D
+B moved forward by 4 steps = F
+C moved forward by 0 steps = C
+C moved forward by 2 steps = E
+C moved forward by 4 steps = G
+
+So the resulting ciphertext would be \"ACEBDFCEG\". From this point, decrypting the ciphertext only requires moving backward the same number of steps. As long as you have the password, you can decrypt the message!"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="MarginContainer4" type="MarginContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(1000, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer4"]
+layout_mode = 2
+
+[node name="First" type="Label" parent="VBoxContainer/MarginContainer4/VBoxContainer"]
+custom_minimum_size = Vector2(0, 400)
+layout_mode = 2
+text = "Now you'll get to experiment with this cipher when you press PROCEED. Enter any plaintext you'd like, any password you'd like, and press enter to watch the lock encrypt your text. Just like before, you can click on any of the goals in the top left to set the lock to the relevant starting position for the task.
+
+Experiment with different settings and have fun! You can proceed to the next part once you've completed at least one of the goals."
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/MarginContainer4/VBoxContainer"]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Button" type="Button" parent="VBoxContainer/MarginContainer4/VBoxContainer/MarginContainer"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme = ExtResource("3_sxxsf")
+text = "PROCEED"
+script = ExtResource("4_153ra")
+nextScene = ExtResource("4_uqwjh")
+
+[connection signal="pressed" from="VBoxContainer/MarginContainer4/VBoxContainer/MarginContainer/Button" to="VBoxContainer/MarginContainer4/VBoxContainer/MarginContainer/Button" method="_on_pressed"]

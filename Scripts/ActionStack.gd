@@ -1,5 +1,7 @@
 extends Node
 
+class_name ActionStack
+
 enum ActionType {SWAP, ROTATE}
 
 @export var locks : LockArray
@@ -7,31 +9,33 @@ enum ActionType {SWAP, ROTATE}
 var actionStack = []
 var currentTween1 : Tween
 var currentTween2 : Tween
+@export var timer : Timer
 
 
 func _ready():
-	await get_tree().create_timer(6).timeout
-	Push(ActionType.ROTATE, 0, 1)
-	await get_tree().create_timer(movementTime).timeout
-	Push(ActionType.ROTATE, 1, 1)
-	await get_tree().create_timer(movementTime).timeout
-	Push(ActionType.ROTATE, 2, 1)
-	await get_tree().create_timer(movementTime).timeout
-	Push(ActionType.ROTATE, 3, 1)
-	await get_tree().create_timer(movementTime).timeout
-	Push(ActionType.ROTATE, 4, 1)
-	await get_tree().create_timer(movementTime).timeout
-	Push(ActionType.SWAP, 0, 6)
-	await get_tree().create_timer(movementTime).timeout
-	Push(ActionType.SWAP, 1, 7)
-	await get_tree().create_timer(movementTime).timeout
-	Push(ActionType.SWAP, 2, 8)
-	await get_tree().create_timer(movementTime).timeout
-	Push(ActionType.SWAP, 3, 9)
-	await get_tree().create_timer(movementTime).timeout
-	Push(ActionType.SWAP, 4, 10)
-	await get_tree().create_timer(2).timeout
-	Decrypt()
+	locks.SetLockToWord("Hello World")
+	#await get_tree().create_timer(6).timeout
+	#Push(ActionType.ROTATE, 0, 1)
+	#await get_tree().create_timer(movementTime).timeout
+	#Push(ActionType.ROTATE, 1, 1)
+	#await get_tree().create_timer(movementTime).timeout
+	#Push(ActionType.ROTATE, 2, 1)
+	#await get_tree().create_timer(movementTime).timeout
+	#Push(ActionType.ROTATE, 3, 1)
+	#await get_tree().create_timer(movementTime).timeout
+	#Push(ActionType.ROTATE, 4, 1)
+	#await get_tree().create_timer(movementTime).timeout
+	#Push(ActionType.SWAP, 0, 6)
+	#await get_tree().create_timer(movementTime).timeout
+	#Push(ActionType.SWAP, 1, 7)
+	#await get_tree().create_timer(movementTime).timeout
+	#Push(ActionType.SWAP, 2, 8)
+	#await get_tree().create_timer(movementTime).timeout
+	#Push(ActionType.SWAP, 3, 9)
+	#await get_tree().create_timer(movementTime).timeout
+	#Push(ActionType.SWAP, 4, 10)
+	#await get_tree().create_timer(2).timeout
+	#Decrypt()
 
 
 func Push(type : ActionType, x : int, y : int):
@@ -75,6 +79,9 @@ func Execute(type : ActionType, x : int, y : int):
 			await currentTween1.finished
 			await currentTween2.finished
 			
+			var tempLock = locks.lockArray[x]
+			locks.lockArray[x] = locks.lockArray[y]
+			locks.lockArray[y] = tempLock
 			
 		ActionType.ROTATE:
 			if y > 0:
@@ -88,14 +95,20 @@ func Execute(type : ActionType, x : int, y : int):
 
 
 func Decrypt():
+	var lastAction = [ActionType.ROTATE, 0, 0]
+	var currentAction = lastAction
 	while len(actionStack) > 0:
-		var currentAction = Pop()
-		Execute(currentAction[0], currentAction[1], currentAction[2])
 		match currentAction[0]:
-			ActionType.SWAP:
-				await get_tree().create_timer(movementTime + 0.1).timeout
 			ActionType.ROTATE:
-				await get_tree().create_timer(locks.lockArray[0].tickTime * currentAction[2] + 0.1).timeout
+				timer.wait_time = currentAction[2] * 0.1 + 0.2
+				timer.start()
+			ActionType.SWAP:
+				timer.wait_time = movementTime + 0.2
+				timer.start()
+		await timer.timeout
+		currentAction = Pop()
+		Execute(currentAction[0], currentAction[1], currentAction[2])
+		lastAction = currentAction
 
 
 func TweenPosition(whatObject, whichTween, desiredPosition, desiredLength):

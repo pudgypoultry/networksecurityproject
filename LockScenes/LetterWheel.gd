@@ -13,6 +13,7 @@ var currentTween # Value for the tween in TweenRotation to use so I don't remake
 var alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ "
 var currentLetter = "A"
 var tickTime = 0.1
+var tween
 
 func _ready():
 	originalRotation = rotation # save original rotation upon start of scene
@@ -31,7 +32,7 @@ func SetWheelToLetter(letter : String):
 	else:
 		rotationTarget = 0
 	
-	var tween = TweenRotation(rotation + Vector3(0, 0, rotationTarget), tickTime)
+	tween = TweenRotation(rotation + Vector3(0, 0, rotationTarget), tickTime)
 	await tween.finished
 	
 	currentTick = targetTick
@@ -40,7 +41,7 @@ func SetWheelToLetter(letter : String):
 
 func TickUp(tickingOver = false):
 	# Tick the wheel up to the next character
-	var tween = TweenRotation(rotation + Vector3(0, 0, -rotationAmount), tickTime)
+	tween = TweenRotation(rotation + Vector3(0, 0, -rotationAmount), tickTime)
 	await tween.finished
 	currentTick += 1
 	if tickingOver:
@@ -55,7 +56,7 @@ func TickUp(tickingOver = false):
 
 func TickDown(tickingOver = false):
 	# Tick the wheel down to the last character
-	var tween = TweenRotation(rotation + Vector3(0, 0, rotationAmount), tickTime)
+	tween = TweenRotation(rotation + Vector3(0, 0, rotationAmount), tickTime)
 	await tween.finished
 	currentTick -= 1
 	if tickingOver:
