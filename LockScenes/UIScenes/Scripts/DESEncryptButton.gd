@@ -4,5 +4,8 @@ extends Button
 @export var actionStacks : Array[ActionStack]
 
 func _on_pressed() -> void:
+	var complexity = int(complexityLine.get_line_edit().text)
+	complexityLine.editable = false
+	self.disabled = true
 	for stack in actionStacks:
-		stack.Demo(int(complexityLine.get_line_edit().text))
+		stack.Demo(complexity)

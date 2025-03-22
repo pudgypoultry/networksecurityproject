@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://5nn5h2cdaach"]
+[gd_scene load_steps=13 format=3 uid="uid://5nn5h2cdaach"]
 
 [ext_resource type="Script" path="res://LockScenes/3DScenes/Scripts/FullLock.gd" id="1_8oqlw"]
 [ext_resource type="PackedScene" uid="uid://c71ucj6e05lfr" path="res://LockScenes/3DScenes/letter_wheel.tscn" id="2_f311k"]
 [ext_resource type="Theme" uid="uid://dfym1ny6kb6pj" path="res://Fonts/Button.tres" id="3_egkpg"]
 [ext_resource type="Script" path="res://LockScenes/UIScenes/Scripts/DESEncryptButton.gd" id="4_voh66"]
 [ext_resource type="Script" path="res://LockScenes/UIScenes/Scripts/ResetSceneButton.gd" id="5_h3aow"]
+[ext_resource type="Script" path="res://LockScenes/3DScenes/DecryptSafety.gd" id="5_hpgqs"]
 [ext_resource type="Script" path="res://LockScenes/Tools/ActionStackManager.gd" id="7_pmm0l"]
 [ext_resource type="Script" path="res://LockScenes/Tools/ActionStack.gd" id="8_gi3un"]
 [ext_resource type="Script" path="res://LockScenes/UIScenes/Scripts/SceneLoadButton.gd" id="8_mym7q"]
@@ -255,13 +256,15 @@ script = ExtResource("4_voh66")
 complexityLine = NodePath("../../HBoxContainer/FirstWheel")
 actionStacks = [NodePath("../../../../../ActionStackLeft"), NodePath("../../../../../ActionStackRight")]
 
-[node name="Decrypt" type="Button" parent="MarginContainer/CenterContainer/VBoxContainer2/VBoxContainer"]
+[node name="Decrypt" type="Button" parent="MarginContainer/CenterContainer/VBoxContainer2/VBoxContainer" node_paths=PackedStringArray("waitForDecrypt")]
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme = ExtResource("3_egkpg")
 text = "DECRYPT"
+script = ExtResource("5_hpgqs")
+waitForDecrypt = NodePath("../../../../../ActionStackCombined")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/CenterContainer/VBoxContainer2"]
 layout_mode = 2
@@ -392,6 +395,7 @@ script = ExtResource("8_mym7q")
 nextScene = "res://FinalScenes/DESAESScene.tscn"
 
 [connection signal="pressed" from="MarginContainer/CenterContainer/VBoxContainer2/VBoxContainer/Encrypt" to="MarginContainer/CenterContainer/VBoxContainer2/VBoxContainer/Encrypt" method="_on_pressed"]
+[connection signal="pressed" from="MarginContainer/CenterContainer/VBoxContainer2/VBoxContainer/Decrypt" to="MarginContainer/CenterContainer/VBoxContainer2/VBoxContainer/Decrypt" method="_on_pressed"]
 [connection signal="pressed" from="MarginContainer/CenterContainer/VBoxContainer2/VBoxContainer/Decrypt" to="ActionStackCombined" method="Decrypt"]
 [connection signal="pressed" from="CenterContainer/HBoxContainer/Button" to="CenterContainer/HBoxContainer/Button" method="_on_pressed"]
 [connection signal="pressed" from="ProceedButton/Proceed" to="ProceedButton/Proceed" method="_on_pressed"]

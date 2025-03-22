@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cuxwthj5mw6ky"]
 
 [ext_resource type="FontFile" uid="uid://dta5ub6hkqfo8" path="res://Fonts/mmrock9/MMRock9.ttf" id="1_4qm57"]
-[ext_resource type="Script" path="res://Scripts/FloatToArray.gd" id="2_6lpmq"]
+[ext_resource type="Script" path="res://LockScenes/3DScenes/Scripts/FloatToArray.gd" id="2_6lpmq"]
 
 [node name="ConversionScene" type="VBoxContainer"]
 anchors_preset = 7

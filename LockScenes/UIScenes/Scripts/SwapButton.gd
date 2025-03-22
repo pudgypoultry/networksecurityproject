@@ -14,6 +14,9 @@ func _ready():
 
 
 func _on_pressed() -> void:
+	self.disabled = true
 	whichWheel1 = int(wheel1BoxLine.text)
 	whichWheel2 = int(wheel2BoxLine.text)
 	actionStack.Push(actionStack.ActionType.SWAP, whichWheel1, whichWheel2)
+	await get_tree().create_timer(1).timeout
+	self.disabled = false
