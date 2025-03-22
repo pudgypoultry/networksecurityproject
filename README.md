@@ -9,7 +9,7 @@ Created by Andrew Teske and Jonny Nelson
 ## How It Works
 After pressing start, the user will be shown a brief presentation (a few paragraphs) discussing and demonstrating the basics of the Caesar cipher. At the end, the user will be prompted to proceed to a toy comprised of a combination lock that they can play with in order to gain insight with the cipher they've just learned. Once the user has completed one of the offered tasks, they will be allowed to proceed onto the next presentation that discusses that cipher and leads into the next.
 
-This process will repeat from Caesar Cipher -> Vigenere Cipher -> A basic demonstration of confusion and diffusion -> DES/AES -> And finally RSA
+This process will repeat from Caesar Cipher -> Vigenere Cipher -> A basic demonstration of confusion/diffusion -> DES/AES -> And finally RSA
 
 The user may use a mouse and keyboard, but the app should work on mobile devices as well!
 
